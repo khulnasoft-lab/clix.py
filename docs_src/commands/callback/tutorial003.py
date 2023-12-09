@@ -1,11 +1,11 @@
-import typer
+import clix
 
 
 def callback():
     print("Running a command")
 
 
-app = typer.Typer(callback=callback)
+app = clix.Clix(callback=callback)
 
 
 @app.callback()

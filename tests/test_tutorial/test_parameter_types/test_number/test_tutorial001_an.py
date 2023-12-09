@@ -1,15 +1,15 @@
 import subprocess
 import sys
 
-import typer
-import typer.core
-from typer.testing import CliRunner
+import clix
+import clix.core
+from clix.testing import CliRunner
 
 from docs_src.parameter_types.number import tutorial001_an as mod
 
 runner = CliRunner()
 
-app = typer.Typer()
+app = clix.Clix()
 app.command()(mod.main)
 
 
@@ -23,15 +23,15 @@ def test_help():
 
 
 def test_help_no_rich():
-    rich = typer.core.rich
-    typer.core.rich = None
+    rich = clix.core.rich
+    clix.core.rich = None
     result = runner.invoke(app, ["--help"])
     assert result.exit_code == 0
     assert "--age" in result.output
     assert "INTEGER RANGE" in result.output
     assert "--score" in result.output
     assert "FLOAT RANGE" in result.output
-    typer.core.rich = rich
+    clix.core.rich = rich
 
 
 def test_params():

@@ -1,10 +1,10 @@
-import typer
-import typer.main
+import clix
+import clix.main
 
-typer.main.rich = None
+clix.main.rich = None
 
 
-app = typer.Typer(pretty_exceptions_short=False)
+app = clix.Clix(pretty_exceptions_short=False)
 
 
 @app.command()

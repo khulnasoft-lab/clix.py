@@ -1,15 +1,15 @@
 import subprocess
 import sys
 
-import typer
-from typer.testing import CliRunner
+import clix
+from clix.testing import CliRunner
 
 from docs_src.multiple_values.arguments_with_multiple_values import (
     tutorial002_an as mod,
 )
 
 runner = CliRunner()
-app = typer.Typer()
+app = clix.Clix()
 app.command()(mod.main)
 
 

@@ -48,7 +48,7 @@ Processing user: Morty
 
 ## Multiple `float`
 
-The same way, you can use other types and they will be converted by **Typer** to their declared type:
+The same way, you can use other types and they will be converted by **Clix** to their declared type:
 
 === "Python 3.6+"
 

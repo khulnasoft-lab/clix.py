@@ -2,14 +2,14 @@ import os
 import subprocess
 import sys
 
-import typer
-from typer.testing import CliRunner
+import clix
+from clix.testing import CliRunner
 
 from docs_src.options.version import tutorial003 as mod
 
 runner = CliRunner()
 
-app = typer.Typer()
+app = clix.Clix()
 app.command()(mod.main)
 
 
@@ -52,7 +52,7 @@ def test_completion():
             "_TUTORIAL003.PY_COMPLETE": "complete_bash",
             "COMP_WORDS": "tutorial003.py --name Rick --v",
             "COMP_CWORD": "3",
-            "_TYPER_COMPLETE_TESTING": "True",
+            "_CLIX_COMPLETE_TESTING": "True",
         },
     )
     assert "--version" in result.stdout

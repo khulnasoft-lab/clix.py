@@ -1,14 +1,14 @@
-When adding a Typer app to another we have seen how to set the `name` to use for the command.
+When adding a Clix app to another we have seen how to set the `name` to use for the command.
 
 For example to set the command to `users`:
 
 ```Python
-app.add_typer(users.app, name="users")
+app.add_clix(users.app, name="users")
 ```
 
 ## Add a help text
 
-We can also set the `help` while adding a Typer:
+We can also set the `help` while adding a Clix:
 
 ```Python hl_lines="6"
 {!../docs_src/subcommands/name_help/tutorial001.py!}
@@ -73,16 +73,16 @@ def create(item: str):
     """
     Create an item.
     """
-    typer.echo(f"Creating item: {item}")
+    clix.echo(f"Creating item: {item}")
 ```
 
 ...will create a command `create` with a help text of `Create an item`.
 
 ### Inferring name and help from `@app.callback()`
 
-The same way, if you define a callback in a `typer.Typer()`, the help text is extracted from the callback function's docstring.
+The same way, if you define a callback in a `clix.Clix()`, the help text is extracted from the callback function's docstring.
 
-And if that Typer app is added to another Typer app, the default name of the command is generated from the name of the callback function.
+And if that Clix app is added to another Clix app, the default name of the command is generated from the name of the callback function.
 
 Here's an example:
 
@@ -90,7 +90,7 @@ Here's an example:
 {!../docs_src/subcommands/name_help/tutorial002.py!}
 ```
 
-Notice that now we added the sub-Typer without specifying a `name` nor a `help`.
+Notice that now we added the sub-Clix without specifying a `name` nor a `help`.
 
 They are now inferred from the callback function.
 
@@ -134,9 +134,9 @@ Commands:
 
 </div>
 
-### Name and help from callback parameter in `typer.Typer()`
+### Name and help from callback parameter in `clix.Clix()`
 
-If you pass a `callback` parameter while creating a `typer.Typer(callback=some_function)` it will be used to infer the name and help text.
+If you pass a `callback` parameter while creating a `clix.Clix(callback=some_function)` it will be used to infer the name and help text.
 
 This has the lowest priority, we'll see later what has a higher priority and can override it.
 
@@ -184,9 +184,9 @@ Commands:
 
 </div>
 
-### Override a callback set in `typer.Typer()` with `@app.callback()`
+### Override a callback set in `clix.Clix()` with `@app.callback()`
 
-The same as with normal **Typer** apps, if you pass a `callback` to `typer.Typer(callback=some_function)` and then override it with `@app.callback()`, the name and help text will be inferred from the new callback:
+The same as with normal **Clix** apps, if you pass a `callback` to `clix.Clix(callback=some_function)` and then override it with `@app.callback()`, the name and help text will be inferred from the new callback:
 
 ```Python hl_lines="16 17 18 19 20"
 {!../docs_src/subcommands/name_help/tutorial004.py!}
@@ -230,11 +230,11 @@ Commands:
 
 </div>
 
-### Infer name and help from callback in `app.add_typer()`
+### Infer name and help from callback in `app.add_clix()`
 
-If you override the callback in `app.add_typer()` when including a sub-app, the name and help will be inferred from this callback function.
+If you override the callback in `app.add_clix()` when including a sub-app, the name and help will be inferred from this callback function.
 
-This takes precedence over inferring the name and help from a callback set in `@sub_app.callback()` and `typer.Typer(callback=sub_app_callback)`.
+This takes precedence over inferring the name and help from a callback set in `@sub_app.callback()` and `clix.Clix(callback=sub_app_callback)`.
 
 Check the code:
 
@@ -284,9 +284,9 @@ Commands:
 
 So, when inferring a name and help text, the precedence order from lowest priority to highest is:
 
-* `sub_app = typer.Typer(callback=some_function)`
+* `sub_app = clix.Clix(callback=some_function)`
 * `@sub_app.callback()`
-* `app.add_typer(sub_app, callback=new_function)`
+* `app.add_clix(sub_app, callback=new_function)`
 
 That's for inferring the name and help text from functions.
 
@@ -299,13 +299,13 @@ Let's now see the places where you can set the command name and help text, from 
 !!! tip
     Setting the name and help text explicitly always has a higher precedence than inferring from a callback function.
 
-### Name and help in `typer.Typer()`
+### Name and help in `clix.Clix()`
 
 You could have all the callbacks and overrides we defined before, but the name and help text was inferred from the function name and docstring.
 
 If you set it explicitly, that takes precedence over inferring.
 
-You can set it when creating a new `typer.Typer()`:
+You can set it when creating a new `clix.Clix()`:
 
 ```Python hl_lines="12"
 {!../docs_src/subcommands/name_help/tutorial006.py!}
@@ -356,7 +356,7 @@ Commands:
 
 ### Name and help in `@app.callback()`
 
-Any parameter that you use when creating a `typer.Typer()` app can be overridden in the parameters of `@app.callback()`.
+Any parameter that you use when creating a `clix.Clix()` app can be overridden in the parameters of `@app.callback()`.
 
 Continuing with the previous example, we now override the values in `@user_app.callback()`:
 
@@ -402,9 +402,9 @@ Commands:
 
 </div>
 
-### Name and help in `app.add_typer()`
+### Name and help in `app.add_clix()`
 
-And finally, with the highest priority, you can override all that by explicitly setting the `name` and `help` in `app.add_typer()`, just like we did on the first example above:
+And finally, with the highest priority, you can override all that by explicitly setting the `name` and `help` in `app.add_clix()`, just like we did on the first example above:
 
 ```Python hl_lines="21"
 {!../docs_src/subcommands/name_help/tutorial008.py!}
@@ -452,11 +452,11 @@ Commands:
 
 The precedence to generate a command's name and help, from lowest priority to highest, is:
 
-* Implicitly inferred from `sub_app = typer.Typer(callback=some_function)`
+* Implicitly inferred from `sub_app = clix.Clix(callback=some_function)`
 * Implicitly inferred from the callback function under `@sub_app.callback()`
-* Implicitly inferred from `app.add_typer(sub_app, callback=some_function)`
-* Explicitly set on `sub_app = typer.Typer(name="some-name", help="Some help.")`
+* Implicitly inferred from `app.add_clix(sub_app, callback=some_function)`
+* Explicitly set on `sub_app = clix.Clix(name="some-name", help="Some help.")`
 * Explicitly set on `@sub_app.callback("some-name", help="Some help.")`
-* Explicitly set on `app.add_typer(sub_app, name="some-name", help="Some help.")`
+* Explicitly set on `app.add_clix(sub_app, name="some-name", help="Some help.")`
 
-So, `app.add_typer(sub_app, name="some-name", help="Some help.")` always wins.
+So, `app.add_clix(sub_app, name="some-name", help="Some help.")` always wins.

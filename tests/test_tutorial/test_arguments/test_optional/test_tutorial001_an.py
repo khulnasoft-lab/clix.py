@@ -1,15 +1,15 @@
 import subprocess
 import sys
 
-import typer
-import typer.core
-from typer.testing import CliRunner
+import clix
+import clix.core
+from clix.testing import CliRunner
 
 from docs_src.arguments.optional import tutorial001_an as mod
 
 runner = CliRunner()
 
-app = typer.Typer()
+app = clix.Clix()
 app.command()(mod.main)
 
 
@@ -27,12 +27,12 @@ def test_call_no_arg_standalone():
 
 def test_call_no_arg_no_rich():
     # Mainly for coverage
-    rich = typer.core.rich
-    typer.core.rich = None
+    rich = clix.core.rich
+    clix.core.rich = None
     result = runner.invoke(app)
     assert result.exit_code != 0
     assert "Error: Missing argument 'NAME'" in result.stdout
-    typer.core.rich = rich
+    clix.core.rich = rich
 
 
 def test_call_arg():

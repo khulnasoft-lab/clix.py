@@ -1,4 +1,4 @@
-You can get the application directory where you can, for example, save configuration files with `typer.get_app_dir()`:
+You can get the application directory where you can, for example, save configuration files with `clix.get_app_dir()`:
 
 ```Python hl_lines="9"
 {!../docs_src/app_dir/tutorial001.py!}

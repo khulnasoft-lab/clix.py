@@ -1,21 +1,21 @@
 from typing import Union
 
-import typer
+import clix
 
-app = typer.Typer(rich_markup_mode="rich")
+app = clix.Clix(rich_markup_mode="rich")
 
 
 @app.command()
 def create(
-    username: str = typer.Argument(..., help="The username to create"),
-    lastname: str = typer.Argument(
+    username: str = clix.Argument(..., help="The username to create"),
+    lastname: str = clix.Argument(
         "", help="The last name of the new user", rich_help_panel="Secondary Arguments"
     ),
-    force: bool = typer.Option(False, help="Force the creation of the user"),
-    age: Union[int, None] = typer.Option(
+    force: bool = clix.Option(False, help="Force the creation of the user"),
+    age: Union[int, None] = clix.Option(
         None, help="The age of the new user", rich_help_panel="Additional Data"
     ),
-    favorite_color: Union[str, None] = typer.Option(
+    favorite_color: Union[str, None] = clix.Option(
         None,
         help="The favorite color of the new user",
         rich_help_panel="Additional Data",

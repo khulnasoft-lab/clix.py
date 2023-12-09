@@ -1,11 +1,11 @@
-import typer
+import clix
 from typing_extensions import Annotated
 
-app = typer.Typer()
+app = clix.Clix()
 
 
 @app.command()
-def main(name: str, email: Annotated[str, typer.Option(prompt=True)]):
+def main(name: str, email: Annotated[str, clix.Option(prompt=True)]):
     print(f"Hello {name}, your email is: {email}")
 
 

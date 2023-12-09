@@ -1,4 +1,4 @@
-import typer
+import clix
 
 
 def main(name: str = "World"):
@@ -6,4 +6,4 @@ def main(name: str = "World"):
 
 
 if __name__ == "__main__":
-    typer.run(main)
+    clix.run(main)

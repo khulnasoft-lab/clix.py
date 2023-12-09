@@ -1,4 +1,4 @@
-import typer
+import clix
 from rich import print
 
 
@@ -7,4 +7,4 @@ def main():
 
 
 if __name__ == "__main__":
-    typer.run(main)
+    clix.run(main)

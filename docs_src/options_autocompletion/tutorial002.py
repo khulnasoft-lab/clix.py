@@ -1,16 +1,16 @@
-import typer
+import clix
 
 
 def complete_name():
     return ["Camila", "Carlos", "Sebastian"]
 
 
-app = typer.Typer()
+app = clix.Clix()
 
 
 @app.command()
 def main(
-    name: str = typer.Option(
+    name: str = clix.Option(
         "World", help="The name to say hi to.", autocompletion=complete_name
     )
 ):

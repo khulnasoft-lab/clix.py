@@ -1,32 +1,32 @@
 <p align="center">
-  <a href="https://typer.tiangolo.com"><img src="https://typer.tiangolo.com/img/logo-margin/logo-margin-vector.svg" alt="Typer"></a>
+  <a href="https://clix.khulnasoft.com"><img src="https://clix.khulnasoft.com/img/logo-margin/logo-margin-vector.svg" alt="Clix"></a>
 </p>
 <p align="center">
-    <em>Typer, build great CLIs. Easy to code. Based on Python type hints.</em>
+    <em>Clix, build great CLIs. Easy to code. Based on Python type hints.</em>
 </p>
 <p align="center">
-<a href="https://github.com/tiangolo/typer/actions?query=workflow%3ATest" target="_blank">
-    <img src="https://github.com/tiangolo/typer/workflows/Test/badge.svg" alt="Test">
+<a href="https://github.com/khulnasoft-lab/clix.py/actions?query=workflow%3ATest" target="_blank">
+    <img src="https://github.com/khulnasoft-lab/clix.py/workflows/Test/badge.svg" alt="Test">
 </a>
-<a href="https://github.com/tiangolo/typer/actions?query=workflow%3APublish" target="_blank">
-    <img src="https://github.com/tiangolo/typer/workflows/Publish/badge.svg" alt="Publish">
+<a href="https://github.com/khulnasoft-lab/clix.py/actions?query=workflow%3APublish" target="_blank">
+    <img src="https://github.com/khulnasoft-lab/clix.py/workflows/Publish/badge.svg" alt="Publish">
 </a>
-<a href="https://coverage-badge.samuelcolvin.workers.dev/redirect/tiangolo/typer" target="_blank">
-    <img src="https://coverage-badge.samuelcolvin.workers.dev/tiangolo/typer.svg" alt="Coverage">
-<a href="https://pypi.org/project/typer" target="_blank">
-    <img src="https://img.shields.io/pypi/v/typer?color=%2334D058&label=pypi%20package" alt="Package version">
+<a href="https://coverage-badge.samuelcolvin.workers.dev/redirect/khulnasoft-lab/clix.py" target="_blank">
+    <img src="https://coverage-badge.samuelcolvin.workers.dev/khulnasoft-lab/clix.py.svg" alt="Coverage">
+<a href="https://pypi.org/project/clix" target="_blank">
+    <img src="https://img.shields.io/pypi/v/clix?color=%2334D058&label=pypi%20package" alt="Package version">
 </a>
 </p>
 
 ---
 
-**Documentation**: <a href="https://typer.tiangolo.com" target="_blank">https://typer.tiangolo.com</a>
+**Documentation**: <a href="https://clix.khulnasoft.com" target="_blank">https://clix.khulnasoft.com</a>
 
-**Source Code**: <a href="https://github.com/tiangolo/typer" target="_blank">https://github.com/tiangolo/typer</a>
+**Source Code**: <a href="https://github.com/khulnasoft-lab/clix.py" target="_blank">https://github.com/khulnasoft-lab/clix.py</a>
 
 ---
 
-Typer is a library for building <abbr title="command line interface, programs executed from a terminal">CLI</abbr> applications that users will **love using** and developers will **love creating**. Based on Python 3.6+ type hints.
+Clix is a library for building <abbr title="command line interface, programs executed from a terminal">CLI</abbr> applications that users will **love using** and developers will **love creating**. Based on Python 3.6+ type hints.
 
 The key features are:
 
@@ -38,9 +38,9 @@ The key features are:
 
 ## FastAPI of CLIs
 
-<a href="https://fastapi.tiangolo.com" target="_blank"><img src="https://fastapi.tiangolo.com/img/logo-margin/logo-teal.png" style="width: 20%;"></a>
+<a href="https://fastapi.khulnasoft.com" target="_blank"><img src="https://fastapi.khulnasoft.com/img/logo-margin/logo-teal.png" style="width: 20%;"></a>
 
-**Typer** is <a href="https://fastapi.tiangolo.com" class="external-link" target="_blank">FastAPI</a>'s little sibling.
+**Clix** is <a href="https://fastapi.khulnasoft.com" class="external-link" target="_blank">FastAPI</a>'s little sibling.
 
 And it's intended to be the FastAPI of CLIs.
 
@@ -48,21 +48,21 @@ And it's intended to be the FastAPI of CLIs.
 
 Python 3.6+
 
-**Typer** stands on the shoulders of a giant. Its only internal dependency is <a href="https://click.palletsprojects.com/" class="external-link" target="_blank">Click</a>.
+**Clix** stands on the shoulders of a giant. Its only internal dependency is <a href="https://click.palletsprojects.com/" class="external-link" target="_blank">Click</a>.
 
 ## Installation
 
 <div class="termy">
 
 ```console
-$ pip install "typer[all]"
+$ pip install "clix[all]"
 ---> 100%
-Successfully installed typer
+Successfully installed clix
 ```
 
 </div>
 
-**Note**: that will include <a href="https://rich.readthedocs.io/" class="external-link" target="_blank">Rich</a>. Rich is the recommended library to *display* information on the terminal, it is optional, but when installed, it's deeply integrated into **Typer** to display beautiful output.
+**Note**: that will include <a href="https://rich.readthedocs.io/" class="external-link" target="_blank">Rich</a>. Rich is the recommended library to *display* information on the terminal, it is optional, but when installed, it's deeply integrated into **Clix** to display beautiful output.
 
 ## Example
 
@@ -71,7 +71,7 @@ Successfully installed typer
 * Create a file `main.py` with:
 
 ```Python
-import typer
+import clix
 
 
 def main(name: str):
@@ -79,7 +79,7 @@ def main(name: str):
 
 
 if __name__ == "__main__":
-    typer.run(main)
+    clix.run(main)
 ```
 
 ### Run it
@@ -122,7 +122,7 @@ Hello Camila
 
 </div>
 
-**Note**: auto-completion works when you create a Python package and run it with `--install-completion` or when you use <a href="https://typer.tiangolo.com/typer-cli/" class="internal-link" target="_blank">Typer CLI</a>.
+**Note**: auto-completion works when you create a Python package and run it with `--install-completion` or when you use <a href="https://clix.khulnasoft.com/clix-cli/" class="internal-link" target="_blank">Clix CLI</a>.
 
 ## Example upgrade
 
@@ -134,12 +134,12 @@ Now let's see one a bit more complex.
 
 Modify the file `main.py`.
 
-Create a `typer.Typer()` app, and create two subcommands with their parameters.
+Create a `clix.Clix()` app, and create two subcommands with their parameters.
 
 ```Python hl_lines="3  6  11  20"
-import typer
+import clix
 
-app = typer.Typer()
+app = clix.Clix()
 
 
 @app.command()
@@ -161,10 +161,10 @@ if __name__ == "__main__":
 
 And that will:
 
-* Explicitly create a `typer.Typer` app.
-    * The previous `typer.run` actually creates one implicitly for you.
+* Explicitly create a `clix.Clix` app.
+    * The previous `clix.run` actually creates one implicitly for you.
 * Add two subcommands with `@app.command()`.
-* Execute the `app()` itself, as if it was a function (instead of `typer.run`).
+* Execute the `app()` itself, as if it was a function (instead of `clix.run`).
 
 ### Run the upgraded example
 
@@ -295,22 +295,22 @@ And similarly for **files**, **paths**, **enums** (choices), etc. And there are 
 
 **You get**: great editor support, including **completion** and **type checks** everywhere.
 
-**Your users get**: automatic **`--help`**, **auto-completion** in their terminal (Bash, Zsh, Fish, PowerShell) when they install your package or when using <a href="https://typer.tiangolo.com/typer-cli/" class="internal-link" target="_blank">Typer CLI</a>.
+**Your users get**: automatic **`--help`**, **auto-completion** in their terminal (Bash, Zsh, Fish, PowerShell) when they install your package or when using <a href="https://clix.khulnasoft.com/clix-cli/" class="internal-link" target="_blank">Clix CLI</a>.
 
-For a more complete example including more features, see the <a href="https://typer.tiangolo.com/tutorial/">Tutorial - User Guide</a>.
+For a more complete example including more features, see the <a href="https://clix.khulnasoft.com/tutorial/">Tutorial - User Guide</a>.
 
 ## Optional Dependencies
 
-Typer uses <a href="https://click.palletsprojects.com/" class="external-link" target="_blank">Click</a> internally. That's the only dependency.
+Clix uses <a href="https://click.palletsprojects.com/" class="external-link" target="_blank">Click</a> internally. That's the only dependency.
 
 But you can also install extras:
 
-* <a href="https://rich.readthedocs.io/en/stable/index.html" class="external-link" target="_blank"><code>rich</code></a>: and Typer will show nicely formatted errors automatically.
-* <a href="https://github.com/sarugaku/shellingham" class="external-link" target="_blank"><code>shellingham</code></a>: and Typer will automatically detect the current shell when installing completion.
+* <a href="https://rich.readthedocs.io/en/stable/index.html" class="external-link" target="_blank"><code>rich</code></a>: and Clix will show nicely formatted errors automatically.
+* <a href="https://github.com/sarugaku/shellingham" class="external-link" target="_blank"><code>shellingham</code></a>: and Clix will automatically detect the current shell when installing completion.
     * With `shellingham` you can just use `--install-completion`.
     * Without `shellingham`, you have to pass the name of the shell to install completion for, e.g. `--install-completion bash`.
 
-You can install `typer` with `rich` and `shellingham` with `pip install typer[all]`.
+You can install `clix` with `rich` and `shellingham` with `pip install clix[all]`.
 
 ## License
 

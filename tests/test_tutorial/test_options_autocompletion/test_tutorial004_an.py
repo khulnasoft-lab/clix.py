@@ -2,7 +2,7 @@ import os
 import subprocess
 import sys
 
-from typer.testing import CliRunner
+from clix.testing import CliRunner
 
 from docs_src.options_autocompletion import tutorial004_an as mod
 
@@ -18,8 +18,8 @@ def test_completion():
         env={
             **os.environ,
             "_TUTORIAL004_AN.PY_COMPLETE": "complete_zsh",
-            "_TYPER_COMPLETE_ARGS": "tutorial004_an_aux.py --name ",
-            "_TYPER_COMPLETE_TESTING": "True",
+            "_CLIX_COMPLETE_ARGS": "tutorial004_an_aux.py --name ",
+            "_CLIX_COMPLETE_TESTING": "True",
         },
     )
     assert '"Camila":"The reader of books."' in result.stdout

@@ -1,12 +1,12 @@
-import typer
+import clix
 
-app = typer.Typer()
+app = clix.Clix()
 
 
 def complete(ctx, args, incomplete):
-    typer.echo(f"info name is: {ctx.info_name}", err=True)
-    typer.echo(f"args is: {args}", err=True)
-    typer.echo(f"incomplete is: {incomplete}", err=True)
+    clix.echo(f"info name is: {ctx.info_name}", err=True)
+    clix.echo(f"args is: {args}", err=True)
+    clix.echo(f"incomplete is: {incomplete}", err=True)
     return [
         ("Camila", "The reader of books."),
         ("Carlos", "The writer of scripts."),
@@ -15,7 +15,7 @@ def complete(ctx, args, incomplete):
 
 
 @app.command()
-def main(name: str = typer.Option("World", autocompletion=complete)):
+def main(name: str = clix.Option("World", autocompletion=complete)):
     print(f"Hello {name}")
 
 

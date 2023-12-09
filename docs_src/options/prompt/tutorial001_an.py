@@ -1,10 +1,10 @@
-import typer
+import clix
 from typing_extensions import Annotated
 
 
-def main(name: str, lastname: Annotated[str, typer.Option(prompt=True)]):
+def main(name: str, lastname: Annotated[str, clix.Option(prompt=True)]):
     print(f"Hello {name} {lastname}")
 
 
 if __name__ == "__main__":
-    typer.run(main)
+    clix.run(main)

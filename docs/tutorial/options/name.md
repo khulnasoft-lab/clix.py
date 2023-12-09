@@ -1,4 +1,4 @@
-By default **Typer** will create a *CLI option* name from the function parameter.
+By default **Clix** will create a *CLI option* name from the function parameter.
 
 So, if you have a function with:
 
@@ -10,11 +10,11 @@ def main(user_name: Optional[str] = None):
 or
 
 ```Python
-def main(user_name: Annotated[Optional[str], typer.Option()] = None):
+def main(user_name: Annotated[Optional[str], clix.Option()] = None):
     pass
 ```
 
-**Typer** will create a *CLI option*:
+**Clix** will create a *CLI option*:
 
 ```
 --user-name
@@ -24,7 +24,7 @@ But you can customize it if you want to.
 
 Let's say the function parameter name is `user_name` as above, but you want the *CLI option* to be just `--name`.
 
-You can pass the *CLI option* name that you want to have in the following positional argument passed to `typer.Option()`:
+You can pass the *CLI option* name that you want to have in the following positional argument passed to `clix.Option()`:
 
 === "Python 3.6+"
 
@@ -32,7 +32,7 @@ You can pass the *CLI option* name that you want to have in the following positi
     {!> ../docs_src/options/name/tutorial001_an.py!}
     ```
 
-    Here you are passing the string `"--name"` as the first positional argument to `typer.Option()`.
+    Here you are passing the string `"--name"` as the first positional argument to `clix.Option()`.
 
 === "Python 3.6+ non-Annotated"
 
@@ -43,14 +43,14 @@ You can pass the *CLI option* name that you want to have in the following positi
     {!> ../docs_src/options/name/tutorial001.py!}
     ```
 
-    Here you are passing the string `"--name"` as the second positional argument to `typer.Option()`, as the first argument is `...` to mark it as required.
+    Here you are passing the string `"--name"` as the second positional argument to `clix.Option()`, as the first argument is `...` to mark it as required.
 
 !!! info
     "<a href="https://docs.python.org/3.8/glossary.html#term-argument" class="external-link" target="_blank">Positional</a>" means that it's not a function argument with a keyword name.
 
     For example `show_default=True` is a keyword argument. "`show_default`" is the keyword.
 
-    But in `"--name"` there's no `option_name="--name"` or something similar, it's just the string value `"--name"` that goes in `typer.Option()`.
+    But in `"--name"` there's no `option_name="--name"` or something similar, it's just the string value `"--name"` that goes in `clix.Option()`.
 
     That's a "positional argument" in a function.
 
@@ -181,14 +181,14 @@ tar: You must specify one of the blah, blah, error, error
 
 ### Defining *CLI option* short names
 
-In **Typer** you can also define *CLI option* short names the same way you can customize the long names.
+In **Clix** you can also define *CLI option* short names the same way you can customize the long names.
 
-YOu can pass *positional* arguments to `typer.Option()` to define the *CLI option* name(s).
+YOu can pass *positional* arguments to `clix.Option()` to define the *CLI option* name(s).
 
 !!! tip
     Remember the *positional* function arguments are those that don't have a keyword.
 
-    All the other function arguments/parameters you pass to `typer.Option()` like `prompt=True` and `help="This option blah, blah"` require the keyword.
+    All the other function arguments/parameters you pass to `clix.Option()` like `prompt=True` and `help="This option blah, blah"` require the keyword.
 
 You can overwrite the *CLI option* name to use as in the previous example, but you can also declare extra alternatives, including short names.
 
@@ -277,7 +277,7 @@ Hello Camila
 
 ### *CLI option* short name and default
 
-Continuing with the example above, as **Typer** allows you to declare a *CLI option* as having only a short name, if you want to have the default long name plus a short name, you have to declare both explicitly:
+Continuing with the example above, as **Clix** allows you to declare a *CLI option* as having only a short name, if you want to have the default long name plus a short name, you have to declare both explicitly:
 
 === "Python 3.6+"
 

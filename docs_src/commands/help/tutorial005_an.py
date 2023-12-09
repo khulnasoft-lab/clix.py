@@ -1,12 +1,12 @@
-import typer
+import clix
 from typing_extensions import Annotated
 
-app = typer.Typer(rich_markup_mode="markdown")
+app = clix.Clix(rich_markup_mode="markdown")
 
 
 @app.command()
 def create(
-    username: Annotated[str, typer.Argument(help="The username to be **created**")]
+    username: Annotated[str, clix.Argument(help="The username to be **created**")]
 ):
     """
     **Create** a new *shinny* user. :sparkles:
@@ -17,15 +17,15 @@ def create(
 
     ---
 
-    Learn more at the [Typer docs website](https://typer.tiangolo.com)
+    Learn more at the [Clix docs website](https://clix.khulnasoft.com)
     """
     print(f"Creating user: {username}")
 
 
 @app.command(help="**Delete** a user with *USERNAME*.")
 def delete(
-    username: Annotated[str, typer.Argument(help="The username to be **deleted**")],
-    force: Annotated[bool, typer.Option(help="Force the **deletion** :boom:")] = False,
+    username: Annotated[str, clix.Argument(help="The username to be **deleted**")],
+    force: Annotated[bool, clix.Option(help="Force the **deletion** :boom:")] = False,
 ):
     """
     Some internal utility function to delete.

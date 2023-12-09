@@ -1,12 +1,23 @@
+[tool.poetry]
+name = "clix"
+version = "0.1.0"
+description = ""
+authors = ["gitworkflows <118260833+gitworkflows@users.noreply.github.com>"]
+readme = "README.md"
+packages = [{include = "clix"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
 [build-system]
 requires = ["flit_core >=2,<3"]
 build-backend = "flit_core.buildapi"
 
 [tool.flit.metadata]
-module = "typer"
-author = "Sebastián Ramírez"
-author-email = "tiangolo@gmail.com"
-home-page = "https://github.com/tiangolo/typer"
+module = "clix"
+author = "Md Sulaiman"
+author-email = "infosulaimanbd@gmail.com"
+home-page = "https://github.com/khulnasoft-lab/clix.py"
 classifiers = [
     "Intended Audience :: Information Technology",
     "Intended Audience :: System Administrators",
@@ -37,7 +48,7 @@ description-file = "README.md"
 requires-python = ">=3.6"
 
 [tool.flit.metadata.urls]
-Documentation = "https://typer.tiangolo.com/"
+Documentation = "https://clix.khulnasoft.com/"
 
 [tool.flit.metadata.requires-extra]
 test = [
@@ -72,7 +83,7 @@ all = [
 
 [tool.isort]
 profile = "black"
-known_third_party = ["typer", "click"]
+known_third_party = ["clix", "click"]
 skip_glob = [
     "docs_src/subcommands/tutorial001/main.py",
     "docs_src/subcommands/tutorial003/lands.py",
@@ -89,7 +100,7 @@ junit_family = "xunit2"
 filterwarnings = [
     "error",
     # TODO: until I refactor completion to use the new shell_complete
-    "ignore:'autocompletion' is renamed to 'shell_complete'. The old name is deprecated and will be removed in Click 8.1. See the docs about 'Parameter' for information about new behavior.:DeprecationWarning:typer",
+    "ignore:'autocompletion' is renamed to 'shell_complete'. The old name is deprecated and will be removed in Click 8.1. See the docs about 'Parameter' for information about new behavior.:DeprecationWarning:clix",
     'ignore:starlette.middleware.wsgi is deprecated and will be removed in a future release\..*:DeprecationWarning:starlette',
     # For pytest-xdist
     'ignore::DeprecationWarning:xdist',

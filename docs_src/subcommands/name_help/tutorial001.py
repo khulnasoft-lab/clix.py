@@ -1,9 +1,9 @@
-import typer
+import clix
 
-app = typer.Typer()
+app = clix.Clix()
 
-users_app = typer.Typer()
-app.add_typer(users_app, name="users", help="Manage users in the app.")
+users_app = clix.Clix()
+app.add_clix(users_app, name="users", help="Manage users in the app.")
 
 
 @users_app.command()

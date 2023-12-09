@@ -1,9 +1,9 @@
-import typer
+import clix
 
 
-def main(name: str, lastname: str = typer.Option(default=...)):
+def main(name: str, lastname: str = clix.Option(default=...)):
     print(f"Hello {name} {lastname}")
 
 
 if __name__ == "__main__":
-    typer.run(main)
+    clix.run(main)

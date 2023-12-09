@@ -1,9 +1,9 @@
 from typing import List
 
 import click
-import typer
+import clix
 
-app = typer.Typer()
+app = clix.Clix()
 
 
 def shell_complete(
@@ -14,10 +14,10 @@ def shell_complete(
 
 @app.command(context_settings={"auto_envvar_prefix": "TEST"})
 def main(
-    name: str = typer.Option("John", hidden=True),
-    lastname: str = typer.Option("Doe", "/lastname", show_default="Mr. Doe"),
-    age: int = typer.Option(lambda: 42, show_default=True),
-    nickname: str = typer.Option("", shell_complete=shell_complete),
+    name: str = clix.Option("John", hidden=True),
+    lastname: str = clix.Option("Doe", "/lastname", show_default="Mr. Doe"),
+    age: int = clix.Option(lambda: 42, show_default=True),
+    nickname: str = clix.Option("", shell_complete=shell_complete),
 ):
     """
     Say hello.

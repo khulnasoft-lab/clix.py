@@ -1,8 +1,8 @@
-import typer
+import clix
 
 
 def main(
-    name: str = typer.Argument(
+    name: str = clix.Argument(
         "Wade Wilson", help="Who to greet", show_default="Deadpoolio the amazing's name"
     )
 ):
@@ -10,4 +10,4 @@ def main(
 
 
 if __name__ == "__main__":
-    typer.run(main)
+    clix.run(main)

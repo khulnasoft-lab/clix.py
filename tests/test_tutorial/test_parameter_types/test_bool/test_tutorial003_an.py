@@ -1,14 +1,14 @@
 import subprocess
 import sys
 
-import typer
-from typer.testing import CliRunner
+import clix
+from clix.testing import CliRunner
 
 from docs_src.parameter_types.bool import tutorial003_an as mod
 
 runner = CliRunner()
 
-app = typer.Typer()
+app = clix.Clix()
 app.command()(mod.main)
 
 

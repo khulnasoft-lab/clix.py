@@ -1,6 +1,6 @@
-import typer
+import clix
 
-app = typer.Typer(rich_markup_mode="rich")
+app = clix.Clix(rich_markup_mode="rich")
 
 
 @app.command()

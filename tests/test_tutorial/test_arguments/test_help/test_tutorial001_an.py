@@ -1,15 +1,15 @@
 import subprocess
 import sys
 
-import typer
-import typer.core
-from typer.testing import CliRunner
+import clix
+import clix.core
+from clix.testing import CliRunner
 
 from docs_src.arguments.help import tutorial001_an as mod
 
 runner = CliRunner()
 
-app = typer.Typer()
+app = clix.Clix()
 app.command()(mod.main)
 
 
@@ -24,8 +24,8 @@ def test_help():
 
 
 def test_help_no_rich():
-    rich = typer.core.rich
-    typer.core.rich = None
+    rich = clix.core.rich
+    clix.core.rich = None
     result = runner.invoke(app, ["--help"])
     assert result.exit_code == 0
     assert "[OPTIONS] NAME" in result.output
@@ -33,7 +33,7 @@ def test_help_no_rich():
     assert "NAME" in result.output
     assert "The name of the user to greet" in result.output
     assert "[required]" in result.output
-    typer.core.rich = rich
+    clix.core.rich = rich
 
 
 def test_call_arg():

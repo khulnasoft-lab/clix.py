@@ -1,6 +1,6 @@
-import typer
+import clix
 
-app = typer.Typer()
+app = clix.Clix()
 
 
 @app.command()
@@ -14,7 +14,7 @@ def delete(username: str):
 
 
 @app.callback()
-def main(ctx: typer.Context):
+def main(ctx: clix.Context):
     """
     Manage users in the awesome CLI app.
     """

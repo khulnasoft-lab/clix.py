@@ -1,6 +1,6 @@
 import time
 
-import typer
+import clix
 from rich.progress import track
 
 
@@ -14,4 +14,4 @@ def main():
 
 
 if __name__ == "__main__":
-    typer.run(main)
+    clix.run(main)

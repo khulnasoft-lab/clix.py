@@ -9,18 +9,18 @@ runner = CliRunner()
 
 
 def test_cli():
-    result = runner.invoke(mod.typer_click_object, [])
+    result = runner.invoke(mod.clix_click_object, [])
     # TODO: when deprecating Click 7, remove second option
     assert "Missing command" in result.stdout or "Usage" in result.stdout
 
 
-def test_typer():
-    result = runner.invoke(mod.typer_click_object, ["top"])
-    assert "The Typer app is at the top level" in result.stdout
+def test_clix():
+    result = runner.invoke(mod.clix_click_object, ["top"])
+    assert "The Clix app is at the top level" in result.stdout
 
 
 def test_click():
-    result = runner.invoke(mod.typer_click_object, ["hello", "--name", "Camila"])
+    result = runner.invoke(mod.clix_click_object, ["hello", "--name", "Camila"])
     assert "Hello Camila!" in result.stdout
 
 

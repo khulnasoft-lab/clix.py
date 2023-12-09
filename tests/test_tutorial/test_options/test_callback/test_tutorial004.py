@@ -2,14 +2,14 @@ import os
 import subprocess
 import sys
 
-import typer
-from typer.testing import CliRunner
+import clix
+from clix.testing import CliRunner
 
 from docs_src.options.callback import tutorial004 as mod
 
 runner = CliRunner()
 
-app = typer.Typer()
+app = clix.Clix()
 app.command()(mod.main)
 
 
@@ -47,7 +47,7 @@ def test_completion():
             "_TUTORIAL004.PY_COMPLETE": "complete_bash",
             "COMP_WORDS": "tutorial004.py --",
             "COMP_CWORD": "1",
-            "_TYPER_COMPLETE_TESTING": "True",
+            "_CLIX_COMPLETE_TESTING": "True",
         },
     )
     assert "--name" in result.stdout

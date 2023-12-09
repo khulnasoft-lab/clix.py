@@ -1,4 +1,4 @@
-import typer
+import clix
 from rich.console import Console
 from rich.table import Table
 
@@ -13,4 +13,4 @@ def main():
 
 
 if __name__ == "__main__":
-    typer.run(main)
+    clix.run(main)

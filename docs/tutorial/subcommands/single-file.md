@@ -10,7 +10,7 @@ There are several things to notice here...
 
 ## Apps at the top
 
-First, you can create `typer.Typer()` objects and add them to another one at the top.
+First, you can create `clix.Clix()` objects and add them to another one at the top.
 
 It doesn't have to be done after creating the subcommands:
 
@@ -18,7 +18,7 @@ It doesn't have to be done after creating the subcommands:
 {!../docs_src/subcommands/tutorial002/main.py!}
 ```
 
-You can add the commands (subcommands) to each `typer.Typer()` app later and it will still work.
+You can add the commands (subcommands) to each `clix.Clix()` app later and it will still work.
 
 ## Function names
 

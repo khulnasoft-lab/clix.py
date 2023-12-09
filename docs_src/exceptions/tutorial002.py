@@ -1,6 +1,6 @@
-import typer
+import clix
 
-app = typer.Typer(pretty_exceptions_show_locals=False)
+app = clix.Clix(pretty_exceptions_show_locals=False)
 
 
 @app.command()

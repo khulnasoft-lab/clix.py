@@ -1,4 +1,4 @@
-from typer.testing import CliRunner
+from clix.testing import CliRunner
 
 from .main import app
 

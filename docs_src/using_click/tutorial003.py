@@ -1,21 +1,21 @@
 import click
-import typer
+import clix
 
-app = typer.Typer()
+app = clix.Clix()
 
 
 @app.command()
 def top():
     """
-    Top level command, form Typer
+    Top level command, form Clix
     """
-    print("The Typer app is at the top level")
+    print("The Clix app is at the top level")
 
 
 @app.callback()
 def callback():
     """
-    Typer app, including Click subapp
+    Clix app, including Click subapp
     """
 
 
@@ -26,9 +26,9 @@ def hello(name):
     click.echo("Hello %s!" % name)
 
 
-typer_click_object = typer.main.get_command(app)
+clix_click_object = clix.main.get_command(app)
 
-typer_click_object.add_command(hello, "hello")
+clix_click_object.add_command(hello, "hello")
 
 if __name__ == "__main__":
-    typer_click_object()
+    clix_click_object()

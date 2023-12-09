@@ -1,10 +1,10 @@
-import typer
+import clix
 
-app = typer.Typer()
+app = clix.Clix()
 
 
 @app.command()
-def main(name: str, email: str = typer.Option(..., prompt=True)):
+def main(name: str, email: str = clix.Option(..., prompt=True)):
     print(f"Hello {name}, your email is: {email}")
 
 

@@ -1,12 +1,12 @@
-import typer
-import typer.completion
-from typer.testing import CliRunner
+import clix
+import clix.completion
+from clix.testing import CliRunner
 
 runner = CliRunner()
 
 
 def test_rich_utils_click_rewrapp():
-    app = typer.Typer(rich_markup_mode="markdown")
+    app = clix.Clix(rich_markup_mode="markdown")
 
     @app.command()
     def main():

@@ -1,8 +1,8 @@
-Are you liking **Typer**?
+Are you liking **Clix**?
 
-Would you like to help Typer, other users, and the author?
+Would you like to help Clix, other users, and the author?
 
-Or would you like to get help with **Typer**?
+Or would you like to get help with **Clix**?
 
 There are very simple ways to help (several involve just one or two clicks).
 
@@ -12,62 +12,62 @@ And there are several ways to get help too.
 
 You can subscribe to the (infrequent) [**FastAPI and friends** newsletter](/newsletter/){.internal-link target=_blank} to stay updated about:
 
-* News about FastAPI and friends, including Typer 🚀
+* News about FastAPI and friends, including Clix 🚀
 * Guides 📝
 * Features ✨
 * Breaking changes 🚨
 * Tips and tricks ✅
 
-## Star **Typer** in GitHub
+## Star **Clix** in GitHub
 
-You can "star" Typer in GitHub (clicking the star button at the top right): <a href="https://github.com/tiangolo/typer" class="external-link" target="_blank">https://github.com/tiangolo/typer</a>.
+You can "star" Clix in GitHub (clicking the star button at the top right): <a href="https://github.com/khulnasoft-lab/clix.py" class="external-link" target="_blank">https://github.com/khulnasoft-lab/clix.py</a>.
 
 By adding a star, other users will be able to find it more easily and see that it has been already useful for others.
 
 ## Watch the GitHub repository for releases
 
-You can "watch" Typer in GitHub (clicking the "watch" button at the top right): <a href="https://github.com/tiangolo/typer" class="external-link" target="_blank">https://github.com/tiangolo/typer</a>.
+You can "watch" Clix in GitHub (clicking the "watch" button at the top right): <a href="https://github.com/khulnasoft-lab/clix.py" class="external-link" target="_blank">https://github.com/khulnasoft-lab/clix.py</a>.
 
 There you can select "Releases only".
 
-By doing it, you will receive notifications (in your email) whenever there's a new release (a new version) of **Typer** with bug fixes and new features.
+By doing it, you will receive notifications (in your email) whenever there's a new release (a new version) of **Clix** with bug fixes and new features.
 
 ## Connect with the author
 
-You can connect with <a href="https://tiangolo.com" class="external-link" target="_blank">me (Sebastián Ramírez / `tiangolo`)</a>, the author.
+You can connect with <a href="https://khulnasoft.com" class="external-link" target="_blank">me (Sebastián Ramírez / `khulnasoft-lab`)</a>, the author.
 
 You can:
 
-* <a href="https://github.com/tiangolo" class="external-link" target="_blank">Follow me on **GitHub**</a>.
+* <a href="https://github.com/khulnasoft-lab" class="external-link" target="_blank">Follow me on **GitHub**</a>.
     * See other Open Source projects I have created that could help you.
     * Follow me to see when I create a new Open Source project.
-* <a href="https://twitter.com/tiangolo" class="external-link" target="_blank">Follow me on **Twitter**</a>.
-    * Tell me how you use Typer (I love to hear that).
+* <a href="https://twitter.com/khulnasoft-lab" class="external-link" target="_blank">Follow me on **Twitter**</a>.
+    * Tell me how you use Clix (I love to hear that).
     * Hear when I make announcements or release new tools.
-* <a href="https://www.linkedin.com/in/tiangolo/" class="external-link" target="_blank">Connect with me on **Linkedin**</a>.
+* <a href="https://www.linkedin.com/in/khulnasoft-lab/" class="external-link" target="_blank">Connect with me on **Linkedin**</a>.
     * Hear when I make announcements or release new tools (although I use Twitter more often 🤷‍♂).
-* Read what I write (or follow me) on <a href="https://dev.to/tiangolo" class="external-link" target="_blank">**Dev.to**</a> or <a href="https://medium.com/@tiangolo" class="external-link" target="_blank">**Medium**</a>.
+* Read what I write (or follow me) on <a href="https://dev.to/khulnasoft-lab" class="external-link" target="_blank">**Dev.to**</a> or <a href="https://medium.com/@khulnasoft-lab" class="external-link" target="_blank">**Medium**</a>.
     * Read other ideas, articles, and read about tools I have created.
     * Follow me to read when I publish something new.
 
-## Tweet about **Typer**
+## Tweet about **Clix**
 
-<a href="https://twitter.com/compose/tweet?text=I'm loving Typer because... https://github.com/tiangolo/typer cc @tiangolo" class="external-link" target="_blank">Tweet about **Typer**</a> and let me and others know why you like it.
+<a href="https://twitter.com/compose/tweet?text=I'm loving Clix because... https://github.com/khulnasoft-lab/clix.py cc @khulnasoft-lab" class="external-link" target="_blank">Tweet about **Clix**</a> and let me and others know why you like it.
 
-I love to hear about how **Typer** is being used, what have you liked in it, in which project/company you are using it, etc.
+I love to hear about how **Clix** is being used, what have you liked in it, in which project/company you are using it, etc.
 
 ## Help others with questions in GitHub
 
 You can try and help others with their questions in:
 
-* <a href="https://github.com/tiangolo/typer/discussions/categories/questions?discussions_q=category%3AQuestions+is%3Aunanswered" class="external-link" target="_blank">GitHub Discussions</a>
-* <a href="https://github.com/tiangolo/typer/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+label%3Aquestion+-label%3Aanswered+" class="external-link" target="_blank">GitHub Issues</a>
+* <a href="https://github.com/khulnasoft-lab/clix.py/discussions/categories/questions?discussions_q=category%3AQuestions+is%3Aunanswered" class="external-link" target="_blank">GitHub Discussions</a>
+* <a href="https://github.com/khulnasoft-lab/clix.py/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+label%3Aquestion+-label%3Aanswered+" class="external-link" target="_blank">GitHub Issues</a>
 
 In many cases you might already know the answer for those questions. 🤓
 
 Just remember, the most important point is: try to be kind. People come with their frustrations and in many cases don't ask in the best way, but try as best as you can to be kind. 🤗
 
-The idea is for the **Typer** community to be kind and welcoming. At the same time, don't accept bullying or disrespectful behavior towards others. We have to take care of each other.
+The idea is for the **Clix** community to be kind and welcoming. At the same time, don't accept bullying or disrespectful behavior towards others. We have to take care of each other.
 
 ---
 
@@ -110,7 +110,7 @@ If they reply, there's a high chance you would have solved their problem, congra
 
 ## Watch the GitHub repository
 
-You can "watch" Typer in GitHub (clicking the "watch" button at the top right): <a href="https://github.com/tiangolo/typer" class="external-link" target="_blank">https://github.com/tiangolo/typer</a>.
+You can "watch" Clix in GitHub (clicking the "watch" button at the top right): <a href="https://github.com/khulnasoft-lab/clix.py" class="external-link" target="_blank">https://github.com/khulnasoft-lab/clix.py</a>.
 
 If you select "Watching" instead of "Releases only" you will receive notifications when someone creates a new issue or question. You can also specify that you only want to be notified about new issues, or discussions, or PRs, etc.
 
@@ -118,7 +118,7 @@ Then you can try and help them solve those questions.
 
 ## Ask Questions
 
-You can <a href="https://github.com/tiangolo/typer/discussions/new?category=questions" class="external-link" target="_blank">create a new question</a> in the GitHub repository, for example to:
+You can <a href="https://github.com/khulnasoft-lab/clix.py/discussions/new?category=questions" class="external-link" target="_blank">create a new question</a> in the GitHub repository, for example to:
 
 * Ask a **question** or ask about a **problem**.
 * Suggest a new **feature**.
@@ -188,9 +188,9 @@ You can [contribute](contributing.md){.internal-link target=_blank} to the sourc
     * Make sure to add tests.
     * Make sure to add documentation if it's relevant.
 
-## Help Maintain Typer
+## Help Maintain Clix
 
-Help me maintain **Typer**! 🤓
+Help me maintain **Clix**! 🤓
 
 There's a lot of work to do, and for most of it, **YOU** can do it.
 
@@ -199,16 +199,16 @@ The main tasks that you can do right now are:
 * [Help others with questions in GitHub](#help-others-with-questions-in-github){.internal-link target=_blank} (see the section above).
 * [Review Pull Requests](#review-pull-requests){.internal-link target=_blank} (see the section above).
 
-Those two tasks are what **consume time the most**. That's the main work of maintaining Typer.
+Those two tasks are what **consume time the most**. That's the main work of maintaining Clix.
 
-If you can help me with that, **you are helping me maintain Typer** and making sure it keeps **advancing faster and better**. 🚀
+If you can help me with that, **you are helping me maintain Clix** and making sure it keeps **advancing faster and better**. 🚀
 
 ## Join the chat
 
-Join the 👥 <a href="https://discord.gg/VQjSZaeJmf" class="external-link" target="_blank">FastAPI and Friends Discord chat server</a> 👥 and hang out with others in the community. There's a `#typer` channel.
+Join the 👥 <a href="https://discord.gg/VQjSZaeJmf" class="external-link" target="_blank">FastAPI and Friends Discord chat server</a> 👥 and hang out with others in the community. There's a `#clix` channel.
 
 !!! tip
-    For questions, ask them in <a href="https://github.com/tiangolo/typer/discussions/new?category=questions" class="external-link" target="_blank">GitHub Discussions</a>, there's a much better chance you will receive help there.
+    For questions, ask them in <a href="https://github.com/khulnasoft-lab/clix.py/discussions/new?category=questions" class="external-link" target="_blank">GitHub Discussions</a>, there's a much better chance you will receive help there.
 
     Use the chat only for other general conversations.
 
@@ -224,13 +224,13 @@ On the other side, there are thousands of users in the chat, so there's a high c
 
 ## Sponsor the author
 
-You can also financially support the author (me) through <a href="https://github.com/sponsors/tiangolo" class="external-link" target="_blank">GitHub sponsors</a>.
+You can also financially support the author (me) through <a href="https://github.com/sponsors/khulnasoft-lab" class="external-link" target="_blank">GitHub sponsors</a>.
 
 There you could buy me a coffee ☕️ to say thanks. 😄
 
-## Sponsor the tools that power Typer
+## Sponsor the tools that power Clix
 
-As you have seen in the documentation, Typer is built on top of Click.
+As you have seen in the documentation, Clix is built on top of Click.
 
 You can also sponsor:
 

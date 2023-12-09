@@ -1,11 +1,11 @@
-import typer
+import clix
 
-app = typer.Typer(rich_markup_mode="rich")
+app = clix.Clix(rich_markup_mode="rich")
 
 
 @app.command()
 def create(
-    username: str = typer.Argument(
+    username: str = clix.Argument(
         ..., help="The username to be [green]created[/green]"
     )
 ):
@@ -19,8 +19,8 @@ def create(
 
 @app.command(help="[bold red]Delete[/bold red] a user with [italic]USERNAME[/italic].")
 def delete(
-    username: str = typer.Argument(..., help="The username to be [red]deleted[/red]"),
-    force: bool = typer.Option(
+    username: str = clix.Argument(..., help="The username to be [red]deleted[/red]"),
+    force: bool = clix.Option(
         False, help="Force the [bold red]deletion[/bold red] :boom:"
     ),
 ):

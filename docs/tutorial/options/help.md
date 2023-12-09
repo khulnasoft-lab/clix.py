@@ -17,20 +17,20 @@ Let's now do the same for *CLI options*:
     {!> ../docs_src/options/help/tutorial001.py!}
     ```
 
-The same way as with `typer.Argument()`, we can put `typer.Option()` inside of `Annotated`.
+The same way as with `clix.Argument()`, we can put `clix.Option()` inside of `Annotated`.
 
 We can then pass the `help` keyword parameter:
 
 ```Python
-lastname: Annotated[str, typer.Option(help="this option does this and that")] = ""
+lastname: Annotated[str, clix.Option(help="this option does this and that")] = ""
 ```
 
 ...to create the help for that *CLI option*.
 
-The same way as with `typer.Argument()`, **Typer** also supports the old style using the function parameter default value:
+The same way as with `clix.Argument()`, **Clix** also supports the old style using the function parameter default value:
 
 ```Python
-lastname: str = typer.Option(default="", help="this option does this and that")
+lastname: str = clix.Option(default="", help="this option does this and that")
 ```
 
 Copy that example from above to a file `main.py`.
@@ -124,7 +124,7 @@ If you are in a hurry you can jump there, but otherwise, it would be better to c
 
 ## Hide default from help
 
-You can tell Typer to not show the default value in the help text with `show_default=False`:
+You can tell Clix to not show the default value in the help text with `show_default=False`:
 
 === "Python 3.6+"
 
@@ -167,4 +167,4 @@ Options:
 !!! note "Technical Details"
     In Click applications the default values are hidden by default. 🙈
 
-    In **Typer** these default values are shown by default. 👀
+    In **Clix** these default values are shown by default. 👀

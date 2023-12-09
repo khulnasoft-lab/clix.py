@@ -1,6 +1,6 @@
 from enum import Enum
 
-import typer
+import clix
 
 
 class NeuralNetwork(str, Enum):
@@ -10,10 +10,10 @@ class NeuralNetwork(str, Enum):
 
 
 def main(
-    network: NeuralNetwork = typer.Option(NeuralNetwork.simple, case_sensitive=False)
+    network: NeuralNetwork = clix.Option(NeuralNetwork.simple, case_sensitive=False)
 ):
     print(f"Training neural network of type: {network.value}")
 
 
 if __name__ == "__main__":
-    typer.run(main)
+    clix.run(main)

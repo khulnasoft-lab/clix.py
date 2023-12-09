@@ -8,24 +8,24 @@ from unittest import mock
 import click
 import pytest
 import shellingham
-import typer
-import typer.completion
-from typer.main import solve_typer_info_defaults, solve_typer_info_help
-from typer.models import ParameterInfo, TyperInfo
-from typer.testing import CliRunner
+import clix
+import clix.completion
+from clix.main import solve_clix_info_defaults, solve_clix_info_help
+from clix.models import ParameterInfo, ClixInfo
+from clix.testing import CliRunner
 
 runner = CliRunner()
 
 
 def test_help_from_info():
     # Mainly for coverage/completeness
-    value = solve_typer_info_help(TyperInfo())
+    value = solve_clix_info_help(ClixInfo())
     assert value is None
 
 
 def test_defaults_from_info():
     # Mainly for coverage/completeness
-    value = solve_typer_info_defaults(TyperInfo())
+    value = solve_clix_info_defaults(ClixInfo())
     assert value
 
 
@@ -74,7 +74,7 @@ def test_valid_parser_permutations():
 
 
 def test_install_invalid_shell():
-    app = typer.Typer()
+    app = clix.Clix()
 
     @app.command()
     def main():
@@ -90,13 +90,13 @@ def test_install_invalid_shell():
 
 
 def test_callback_too_many_parameters():
-    app = typer.Typer()
+    app = clix.Clix()
 
     def name_callback(ctx, param, val1, val2):
         pass  # pragma: nocover
 
     @app.command()
-    def main(name: str = typer.Option(..., callback=name_callback)):
+    def main(name: str = clix.Option(..., callback=name_callback)):
         pass  # pragma: nocover
 
     with pytest.raises(click.ClickException) as exc_info:
@@ -107,14 +107,14 @@ def test_callback_too_many_parameters():
 
 
 def test_callback_2_untyped_parameters():
-    app = typer.Typer()
+    app = clix.Clix()
 
     def name_callback(ctx, value):
         print(f"info name is: {ctx.info_name}")
         print(f"value is: {value}")
 
     @app.command()
-    def main(name: str = typer.Option(..., callback=name_callback)):
+    def main(name: str = clix.Option(..., callback=name_callback)):
         print("Hello World")
 
     result = runner.invoke(app, ["--name", "Camila"])
@@ -123,7 +123,7 @@ def test_callback_2_untyped_parameters():
 
 
 def test_callback_3_untyped_parameters():
-    app = typer.Typer()
+    app = clix.Clix()
 
     def name_callback(ctx, param, value):
         print(f"info name is: {ctx.info_name}")
@@ -131,7 +131,7 @@ def test_callback_3_untyped_parameters():
         print(f"value is: {value}")
 
     @app.command()
-    def main(name: str = typer.Option(..., callback=name_callback)):
+    def main(name: str = clix.Option(..., callback=name_callback)):
         print("Hello World")
 
     result = runner.invoke(app, ["--name", "Camila"])
@@ -150,8 +150,8 @@ def test_completion_untyped_parameters():
         env={
             **os.environ,
             "_COMPLETION_NO_TYPES.PY_COMPLETE": "complete_zsh",
-            "_TYPER_COMPLETE_ARGS": "completion_no_types.py --name Sebastian --name Ca",
-            "_TYPER_COMPLETE_TESTING": "True",
+            "_CLIX_COMPLETE_ARGS": "completion_no_types.py --name Sebastian --name Ca",
+            "_CLIX_COMPLETE_TESTING": "True",
         },
     )
     assert "info name is: completion_no_types.py" in result.stderr
@@ -183,8 +183,8 @@ def test_completion_untyped_parameters_different_order_correct_names():
         env={
             **os.environ,
             "_COMPLETION_NO_TYPES_ORDER.PY_COMPLETE": "complete_zsh",
-            "_TYPER_COMPLETE_ARGS": "completion_no_types_order.py --name Sebastian --name Ca",
-            "_TYPER_COMPLETE_TESTING": "True",
+            "_CLIX_COMPLETE_ARGS": "completion_no_types_order.py --name Sebastian --name Ca",
+            "_CLIX_COMPLETE_TESTING": "True",
         },
     )
     assert "info name is: completion_no_types_order.py" in result.stderr
@@ -207,13 +207,13 @@ def test_completion_untyped_parameters_different_order_correct_names():
 
 
 def test_autocompletion_too_many_parameters():
-    app = typer.Typer()
+    app = clix.Clix()
 
     def name_callback(ctx, args, incomplete, val2):
         pass  # pragma: nocover
 
     @app.command()
-    def main(name: str = typer.Option(..., autocompletion=name_callback)):
+    def main(name: str = clix.Option(..., autocompletion=name_callback)):
         pass  # pragma: nocover
 
     with pytest.raises(click.ClickException) as exc_info:
@@ -222,7 +222,7 @@ def test_autocompletion_too_many_parameters():
 
 
 def test_forward_references():
-    app = typer.Typer()
+    app = clix.Clix()
 
     @app.command()
     def main(arg1, arg2: int, arg3: "int", arg4: bool = False, arg5: "bool" = False):
@@ -247,7 +247,7 @@ def test_forward_references():
 
 
 def test_context_settings_inheritance_single_command():
-    app = typer.Typer(context_settings=dict(help_option_names=["-h", "--help"]))
+    app = clix.Clix(context_settings=dict(help_option_names=["-h", "--help"]))
 
     @app.command()
     def main(name: str):

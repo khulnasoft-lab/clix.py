@@ -1,19 +1,19 @@
 !!! warning
-    This is a more advanced topic, if you are starting with **Typer**, feel free to skip it.
+    This is a more advanced topic, if you are starting with **Clix**, feel free to skip it.
 
     It will be mostly useful for people that already work with Click and have questions around it.
 
-**Typer** is powered by <a href="https://click.palletsprojects.com" class="external-link" target="_blank">Click</a>. It does all the work underneath.
+**Clix** is powered by <a href="https://click.palletsprojects.com" class="external-link" target="_blank">Click</a>. It does all the work underneath.
 
 Here is some more information related to using both together.
 
-## A single app with both Click and **Typer**
+## A single app with both Click and **Clix**
 
-If you already have a Click application and want to migrate to **Typer**, or to add some Typer components, you can get a Click `Command` from your Typer application and then use Click directly.
+If you already have a Click application and want to migrate to **Clix**, or to add some Clix components, you can get a Click `Command` from your Clix application and then use Click directly.
 
 ### How Click works
 
-Before knowing how to combine Click and **Typer**, let's first check a little about how Click works.
+Before knowing how to combine Click and **Clix**, let's first check a little about how Click works.
 
 #### Click `Command`
 
@@ -48,46 +48,46 @@ For example:
 The `cli` variable is converted by Click from a function to a `Group` object. And the original `cli` function is used by that `Group` internally.
 
 !!! tip
-    The original `cli` function would be the equivalent of a [Typer Callback](./commands/callback.md){.internal-link target=_blank}.
+    The original `cli` function would be the equivalent of a [Clix Callback](./commands/callback.md){.internal-link target=_blank}.
 
 Then the `cli` variable, that now is a `Group` object, is used to add sub-commands.
 
-### How **Typer** works
+### How **Clix** works
 
-Typer doesn't modify the functions. You create an explicit variable of class `typer.Typer` and use it to *register* those functions.
+Clix doesn't modify the functions. You create an explicit variable of class `clix.Clix` and use it to *register* those functions.
 
-And then, when you call the app, Typer goes and creates a Click `Command` (or `Group`), and then calls it.
+And then, when you call the app, Clix goes and creates a Click `Command` (or `Group`), and then calls it.
 
-If your app only has one command, then when you call it, **Typer** creates a single Click `Command` object and calls it.
+If your app only has one command, then when you call it, **Clix** creates a single Click `Command` object and calls it.
 
-But **Typer** creates a Click `Group` object if your app has any of:
+But **Clix** creates a Click `Group` object if your app has any of:
 
 * More than one command.
 * A callback.
-* Sub-Typer apps (sub commands).
+* Sub-Clix apps (sub commands).
 
 !!! tip
     If you want to learn more about this check the section [One or Multiple Commands](./commands/one-or-multiple.md){.internal-link target=_blank}.
 
-### Combine Click and **Typer**
+### Combine Click and **Clix**
 
-**Typer** uses an internal function `typer.main.get_command()` to generate a Click `Command` (or `Group`) from a `typer.Typer` object.
+**Clix** uses an internal function `clix.main.get_command()` to generate a Click `Command` (or `Group`) from a `clix.Clix` object.
 
 You can use it directly, and use the Click object with other Click applications.
 
-### Including a Click app in a **Typer** app
+### Including a Click app in a **Clix** app
 
-For example, you could have a **Typer** app, generate a Click `Group` from it, and then include other Click apps in it:
+For example, you could have a **Clix** app, generate a Click `Group` from it, and then include other Click apps in it:
 
 ```Python hl_lines="15 16  29  31  34"
 {!../docs_src/using_click/tutorial003.py!}
 ```
 
-Notice that we add a callback that does nothing (only document the CLI program), to make sure **Typer** creates a Click `Group`. That way we can add sub-commands to that Click `Group`.
+Notice that we add a callback that does nothing (only document the CLI program), to make sure **Clix** creates a Click `Group`. That way we can add sub-commands to that Click `Group`.
 
-Then we generate a Click object from our `typer.Typer` app (`typer_click_object`), and then we can include another Click object (`hello`) in this Click `Group`.
+Then we generate a Click object from our `clix.Clix` app (`clix_click_object`), and then we can include another Click object (`hello`) in this Click `Group`.
 
-And that way, our **Typer** app will have a subcommand `top` built with Typer, and a subcommand `hello` built with Click.
+And that way, our **Clix** app will have a subcommand `top` built with Clix, and a subcommand `hello` built with Click.
 
 Check it:
 
@@ -101,10 +101,10 @@ Usage: main.py [OPTIONS] COMMAND [ARGS]...
 
 Error: Missing command.
 
-// Call the Typer part
+// Call the Clix part
 $ python main.py top
 
-The Typer app is at the top level
+The Clix app is at the top level
 
 // Call the Click part
 $ python main.py hello --name Camila
@@ -114,21 +114,21 @@ Hello Camila!
 
 </div>
 
-### Including a **Typer** app in a Click app
+### Including a **Clix** app in a Click app
 
-The same way, you can do the contrary and include a **Typer** sub app in a bigger Click app:
+The same way, you can do the contrary and include a **Clix** sub app in a bigger Click app:
 
 ```Python hl_lines="31  33  36"
 {!../docs_src/using_click/tutorial004.py!}
 ```
 
-Notice that we don't have to add a callback or more commands, we can just create a **Typer** app that generates a single Click `Command`, as we don't need to include anything under the Typer app.
+Notice that we don't have to add a callback or more commands, we can just create a **Clix** app that generates a single Click `Command`, as we don't need to include anything under the Clix app.
 
-Then we generate a Click object from our `typer.Typer` app (`typer_click_object`), and then we use **the Click `cli` to include** our Click object from our Typer app.
+Then we generate a Click object from our `clix.Clix` app (`clix_click_object`), and then we use **the Click `cli` to include** our Click object from our Clix app.
 
-In this case, the original Click app includes the **Typer** app.
+In this case, the original Click app includes the **Clix** app.
 
-And then we call the *original Click* app, not the Typer app.
+And then we call the *original Click* app, not the Clix app.
 
 Check it:
 
@@ -137,7 +137,7 @@ Check it:
 ```console
 $ python main.py
 
-// We get our Typer app down there in the sub command
+// We get our Clix app down there in the sub command
 Usage: main.py [OPTIONS] COMMAND [ARGS]...
 
 Options:
@@ -146,7 +146,7 @@ Options:
 Commands:
   dropdb
   initdb
-  sub     A single-command Typer sub app
+  sub     A single-command Clix sub app
 
 
 // Use the Click part
@@ -154,25 +154,25 @@ $ python main.py initdb
 
 Initialized the database
 
-// And use the Typer part
+// And use the Clix part
 $ python main.py sub
 
-Typer is now below Click, the Click app is the top level
+Clix is now below Click, the Click app is the top level
 ```
 
 </div>
 
 ## About Click decorators
 
-Typer apps don't work with Click decorators directly.
+Clix apps don't work with Click decorators directly.
 
-This is because **Typer** doesn't modify functions to add metadata or to convert them to another object like Click does.
+This is because **Clix** doesn't modify functions to add metadata or to convert them to another object like Click does.
 
 So, things like `@click.pass_context` won't work.
 
-Most of the functionality provided by decorators in Click has an alternative way of doing it in **Typer**.
+Most of the functionality provided by decorators in Click has an alternative way of doing it in **Clix**.
 
-For example, to access the context, you can just declare a function parameter of type `typer.Context`.
+For example, to access the context, you can just declare a function parameter of type `clix.Context`.
 
 !!! tip
     You can read more about using the context in the docs: [Commands: Using the Context](commands/context.md){.internal-link target=_blank}

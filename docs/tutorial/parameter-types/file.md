@@ -20,7 +20,7 @@ But in some special use cases you might want to use these special types. For exa
 
 ## `FileText` reading
 
-`typer.FileText` gives you a file-like object for reading text, you will get `str` data from it.
+`clix.FileText` gives you a file-like object for reading text, you will get `str` data from it.
 
 This means that even if your file has text written in a non-english language, e.g. a `text.txt` file with:
 
@@ -80,7 +80,7 @@ Config line: some more settings
 
 ## `FileTextWrite`
 
-For writing text, you can use `typer.FileTextWrite`:
+For writing text, you can use `clix.FileTextWrite`:
 
 === "Python 3.6+"
 
@@ -124,13 +124,13 @@ Some config written by the app
 </div>
 
 !!! info "Technical Details"
-    `typer.FileTextWrite` is a just a convenience class.
+    `clix.FileTextWrite` is a just a convenience class.
 
-    It's the same as using `typer.FileText` and setting `mode="w"`. You will learn about `mode` later below.
+    It's the same as using `clix.FileText` and setting `mode="w"`. You will learn about `mode` later below.
 
 ## `FileBinaryRead`
 
-To read binary data you can use `typer.FileBinaryRead`.
+To read binary data you can use `clix.FileBinaryRead`.
 
 You will receive `bytes` from it.
 
@@ -168,7 +168,7 @@ Processed bytes total: 2048
 
 ## `FileBinaryWrite`
 
-To write binary data you can use `typer.FileBinaryWrite`.
+To write binary data you can use `clix.FileBinaryWrite`.
 
 You would write `bytes` to it.
 
@@ -210,7 +210,7 @@ $ ls ./binary.dat
 
 ## File *CLI parameter* configurations
 
-You can use several configuration parameters for these types (classes) in `typer.Option()` and `typer.Argument()`:
+You can use several configuration parameters for these types (classes) in `clix.Option()` and `clix.Argument()`:
 
 * `mode`: controls the "<a href="https://docs.python.org/3/library/functions.html#open" class="external-link" target="_blank">mode</a>" to open the file with.
     * It's automatically set for you by using the classes above.
@@ -222,18 +222,18 @@ You can use several configuration parameters for these types (classes) in `typer
 
 ## Advanced `mode`
 
-By default, **Typer** will configure the <a href="https://docs.python.org/3/library/functions.html#open" class="external-link" target="_blank">`mode`</a> for you:
+By default, **Clix** will configure the <a href="https://docs.python.org/3/library/functions.html#open" class="external-link" target="_blank">`mode`</a> for you:
 
-* `typer.FileText`: `mode="r"`, to read text.
-* `typer.FileTextWrite`: `mode="w"`, to write text.
-* `typer.FileBinaryRead`: `mode="rb"`, to read binary data.
-* `typer.FileBinaryWrite`: `mode="wb"`, to write binary data.
+* `clix.FileText`: `mode="r"`, to read text.
+* `clix.FileTextWrite`: `mode="w"`, to write text.
+* `clix.FileBinaryRead`: `mode="rb"`, to read binary data.
+* `clix.FileBinaryWrite`: `mode="wb"`, to write binary data.
 
 ### Note about `FileTextWrite`
 
-`typer.FileTextWrite` is actually just a convenience class. It's the same as using `typer.FileText` with `mode="w"`.
+`clix.FileTextWrite` is actually just a convenience class. It's the same as using `clix.FileText` with `mode="w"`.
 
-But it's probably shorter and more intuitive as you can get it with autocompletion in your editor by just starting to type `typer.File`... just like the other classes.
+But it's probably shorter and more intuitive as you can get it with autocompletion in your editor by just starting to type `clix.File`... just like the other classes.
 
 ### Customize `mode`
 
@@ -257,7 +257,7 @@ For example, you could use `mode="a"` to write "appending" to the same file:
     ```
 
 !!! tip
-    As you are manually setting `mode="a"`, you can use `typer.FileText` or `typer.FileTextWrite`, both will work.
+    As you are manually setting `mode="a"`, you can use `clix.FileText` or `clix.FileTextWrite`, both will work.
 
 Check it:
 
@@ -290,14 +290,14 @@ This is a single line
 ## About the different types
 
 !!! info
-    These are technical details about why the different types/classes provided by **Typer**.
+    These are technical details about why the different types/classes provided by **Clix**.
 
     But you don't need this information to be able to use them. You can skip it.
 
-**Typer** provides you these different types (classes) because they inherit directly from the actual Python implementation that will be provided underneath for each case.
+**Clix** provides you these different types (classes) because they inherit directly from the actual Python implementation that will be provided underneath for each case.
 
 This way your editor will give you the right type checks and completion for each type.
 
 Even if you use `lazy`. When you use `lazy` Click creates a especial object to delay writes, and serves as a "proxy" to the actual file that will be written. But this especial proxy object doesn't expose the attributes and methods needed for type checks and completion in the editor. If you access those attributes or call the methods, the "proxy" lazy object will call them in the final object and it will all work. But you wouldn't get autocompletion for them.
 
-But because these **Typer** classes inherit from the actual implementation that will be provided underneath (not the lazy object), you will get all the autocompletion and type checks in the editor.
+But because these **Clix** classes inherit from the actual implementation that will be provided underneath (not the lazy object), you will get all the autocompletion and type checks in the editor.

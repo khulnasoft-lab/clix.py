@@ -1,6 +1,6 @@
 ## The simplest example
 
-The simplest **Typer** file could look like this:
+The simplest **Clix** file could look like this:
 
 ```Python
 {!../docs_src/first_steps/tutorial001.py!}
@@ -118,7 +118,7 @@ $ python main.py --help
 <font color="#F92672">│</font> Missing argument &apos;NAME&apos;.                          <font color="#F92672">│</font>
 <font color="#F92672">╰───────────────────────────────────────────────────╯</font>
 
-<font color="#A1EFE4"><b>typer</b></font> on <font color="#AE81FF"><b> richify</b></font> <font color="#F92672"><b>[»!?] </b></font>via <font color="#F4BF75"><b>🐍 v3.7.5 (env3.7)</b></font>
+<font color="#A1EFE4"><b>clix</b></font> on <font color="#AE81FF"><b> richify</b></font> <font color="#F92672"><b>[»!?] </b></font>via <font color="#F4BF75"><b>🐍 v3.7.5 (env3.7)</b></font>
 <font color="#F92672"><b>❯</b></font> <font color="#A6E22E">python</font> <u style="text-decoration-style:single">main.py</u>
 <font color="#F4BF75">Usage: </font>main.py [OPTIONS] NAME LASTNAME
 <font color="#A5A5A1">Try </font><font color="#44919F">&apos;main.py </font><font color="#44919F"><b>--help</b></font><font color="#44919F">&apos;</font><font color="#A5A5A1"> for help.</font>
@@ -287,7 +287,7 @@ To convert the `lastname` from a *CLI argument* to a *CLI option*, give it a def
 {!../docs_src/first_steps/tutorial005.py!}
 ```
 
-As `lastname` now has a default value of `""` (an empty string) it is no longer required in the function, and **Typer** will now by default make it an optional *CLI option*.
+As `lastname` now has a default value of `""` (an empty string) it is no longer required in the function, and **Clix** will now by default make it an optional *CLI option*.
 
 <div class="termy">
 
@@ -442,7 +442,7 @@ The parameters that come with a name like `--lastname` (and optionally a value) 
 
 In reality, the parameters that require an order can be made *optional* too. And the ones that come with a flag (like `--lastname`) can be *required* too.
 
-### In **Typer**
+### In **Clix**
 
 To try and make it a bit easier, we'll normally use the words "parameter" or "argument" to refer to Python functions.
 
@@ -452,11 +452,11 @@ And we'll use ***CLI option*** to refer to those *CLI parameters* that depend on
 
 We will use ***CLI parameter*** to refer to both, *CLI arguments* and *CLI options*.
 
-## **Typer CLI**
+## **Clix CLI**
 
-Now that you know the basics of **Typer**, you might want to install and use [Typer CLI](../typer-cli.md){.internal-link target=_blank}.
+Now that you know the basics of **Clix**, you might want to install and use [Clix CLI](../clix-cli.md){.internal-link target=_blank}.
 
-**Typer CLI** is a tool to run your **Typer** scripts giving you ✨ auto completion ✨ in your terminal.
+**Clix CLI** is a tool to run your **Clix** scripts giving you ✨ auto completion ✨ in your terminal.
 
 As an alternative to running with Python:
 
@@ -470,12 +470,12 @@ Hello World
 
 </div>
 
-You can run with **Typer CLI**:
+You can run with **Clix CLI**:
 
 <div class="termy">
 
 ```console
-$ typer main.py run
+$ clix main.py run
 
 Hello World
 ```
@@ -487,6 +487,6 @@ Hello World
 So you can use it to have auto completion for your own scripts as you continue with the tutorial.
 
 !!! tip
-    Your CLI application built with **Typer** won't need [Typer CLI](../typer-cli.md){.internal-link target=_blank} to have auto completion once you create a Python package.
+    Your CLI application built with **Clix** won't need [Clix CLI](../clix-cli.md){.internal-link target=_blank} to have auto completion once you create a Python package.
 
     But for short scripts and for learning, before creating a Python package, it might be useful.

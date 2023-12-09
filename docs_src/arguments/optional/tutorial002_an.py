@@ -1,10 +1,10 @@
 from typing import Optional
 
-import typer
+import clix
 from typing_extensions import Annotated
 
 
-def main(name: Annotated[Optional[str], typer.Argument()] = None):
+def main(name: Annotated[Optional[str], clix.Argument()] = None):
     if name is None:
         print("Hello World!")
     else:
@@ -12,4 +12,4 @@ def main(name: Annotated[Optional[str], typer.Argument()] = None):
 
 
 if __name__ == "__main__":
-    typer.run(main)
+    clix.run(main)

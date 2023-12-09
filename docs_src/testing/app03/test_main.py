@@ -1,9 +1,9 @@
-import typer
-from typer.testing import CliRunner
+import clix
+from clix.testing import CliRunner
 
 from .main import main
 
-app = typer.Typer()
+app = clix.Clix()
 app.command()(main)
 
 runner = CliRunner()

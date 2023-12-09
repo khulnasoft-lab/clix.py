@@ -11,11 +11,11 @@ def test_traceback_no_rich():
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
         encoding="utf-8",
-        env={**os.environ, "_TYPER_STANDARD_TRACEBACK": ""},
+        env={**os.environ, "_CLIX_STANDARD_TRACEBACK": ""},
     )
     assert "return get_command(self)(*args, **kwargs)" not in result.stderr
 
-    assert "typer.run(main)" in result.stderr
+    assert "clix.run(main)" in result.stderr
     assert "print(name + 3)" in result.stderr
     # TODO: when deprecating Python 3.6, remove second option
     assert (
@@ -31,7 +31,7 @@ def test_traceback_no_rich_short_disable():
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
         encoding="utf-8",
-        env={**os.environ, "_TYPER_STANDARD_TRACEBACK": ""},
+        env={**os.environ, "_CLIX_STANDARD_TRACEBACK": ""},
     )
     assert "return get_command(self)(*args, **kwargs)" not in result.stderr
 
@@ -51,14 +51,14 @@ def test_unmodified_traceback():
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
         encoding="utf-8",
-        env={**os.environ, "_TYPER_STANDARD_TRACEBACK": ""},
+        env={**os.environ, "_CLIX_STANDARD_TRACEBACK": ""},
     )
     assert "morty" in result.stdout, "the call to the first app should work normally"
     assert "return callback(**use_params)" in result.stderr, (
-        "calling outside of Typer should show the normal traceback, "
+        "calling outside of Clix should show the normal traceback, "
         "even after the hook is installed"
     )
-    assert "typer.main.get_command(broken_app)()" in result.stderr
+    assert "clix.main.get_command(broken_app)()" in result.stderr
     assert "print(name + 3)" in result.stderr
     # TODO: when deprecating Python 3.6, remove second option
     assert (

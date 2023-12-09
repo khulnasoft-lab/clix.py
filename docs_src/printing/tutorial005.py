@@ -1,15 +1,15 @@
-import typer
+import clix
 
 
 def main(good: bool = True):
     message_start = "everything is "
     if good:
-        ending = typer.style("good", fg=typer.colors.GREEN, bold=True)
+        ending = clix.style("good", fg=clix.colors.GREEN, bold=True)
     else:
-        ending = typer.style("bad", fg=typer.colors.WHITE, bg=typer.colors.RED)
+        ending = clix.style("bad", fg=clix.colors.WHITE, bg=clix.colors.RED)
     message = message_start + ending
-    typer.echo(message)
+    clix.echo(message)
 
 
 if __name__ == "__main__":
-    typer.run(main)
+    clix.run(main)

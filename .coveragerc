@@ -1,12 +1,12 @@
 [run]
 
 source =
-    typer
+    clix
     tests
     docs_src
 
 omit =
-    typer/_typing.py
+    clix/_typing.py
 
 parallel = True
 context = '${CONTEXT}'

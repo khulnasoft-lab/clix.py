@@ -1,28 +1,28 @@
 from typing import Union
 
-import typer
+import clix
 from typing_extensions import Annotated
 
-app = typer.Typer(rich_markup_mode="rich")
+app = clix.Clix(rich_markup_mode="rich")
 
 
 @app.command()
 def create(
-    username: Annotated[str, typer.Argument(help="The username to create")],
+    username: Annotated[str, clix.Argument(help="The username to create")],
     lastname: Annotated[
         str,
-        typer.Argument(
+        clix.Argument(
             help="The last name of the new user", rich_help_panel="Secondary Arguments"
         ),
     ] = "",
-    force: Annotated[bool, typer.Option(help="Force the creation of the user")] = False,
+    force: Annotated[bool, clix.Option(help="Force the creation of the user")] = False,
     age: Annotated[
         Union[int, None],
-        typer.Option(help="The age of the new user", rich_help_panel="Additional Data"),
+        clix.Option(help="The age of the new user", rich_help_panel="Additional Data"),
     ] = None,
     favorite_color: Annotated[
         Union[str, None],
-        typer.Option(
+        clix.Option(
             help="The favorite color of the new user",
             rich_help_panel="Additional Data",
         ),

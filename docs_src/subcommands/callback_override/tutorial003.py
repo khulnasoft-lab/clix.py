@@ -1,14 +1,14 @@
-import typer
+import clix
 
-app = typer.Typer()
+app = clix.Clix()
 
 
 def default_callback():
     print("Running a users command")
 
 
-users_app = typer.Typer(callback=default_callback)
-app.add_typer(users_app, name="users")
+users_app = clix.Clix(callback=default_callback)
+app.add_clix(users_app, name="users")
 
 
 @users_app.callback()

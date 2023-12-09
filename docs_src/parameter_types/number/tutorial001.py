@@ -1,10 +1,10 @@
-import typer
+import clix
 
 
 def main(
-    id: int = typer.Argument(..., min=0, max=1000),
-    age: int = typer.Option(20, min=18),
-    score: float = typer.Option(0, max=100),
+    id: int = clix.Argument(..., min=0, max=1000),
+    age: int = clix.Option(20, min=18),
+    score: float = clix.Option(0, max=100),
 ):
     print(f"ID is {id}")
     print(f"--age is {age}")
@@ -12,4 +12,4 @@ def main(
 
 
 if __name__ == "__main__":
-    typer.run(main)
+    clix.run(main)

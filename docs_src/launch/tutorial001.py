@@ -1,10 +1,10 @@
-import typer
+import clix
 
 
 def main():
-    print("Opening Typer's docs")
-    typer.launch("https://typer.tiangolo.com")
+    print("Opening Clix's docs")
+    clix.launch("https://clix.khulnasoft.com")
 
 
 if __name__ == "__main__":
-    typer.run(main)
+    clix.run(main)

@@ -13,8 +13,8 @@ def test_completion_show_no_shell():
         encoding="utf-8",
         env={
             **os.environ,
-            "_TYPER_COMPLETE_TESTING": "True",
-            "_TYPER_COMPLETE_TEST_DISABLE_SHELL_DETECTION": "True",
+            "_CLIX_COMPLETE_TESTING": "True",
+            "_CLIX_COMPLETE_TEST_DISABLE_SHELL_DETECTION": "True",
         },
     )
     # TODO: when deprecating Click 7, remove second option
@@ -40,8 +40,8 @@ def test_completion_show_bash():
         encoding="utf-8",
         env={
             **os.environ,
-            "_TYPER_COMPLETE_TESTING": "True",
-            "_TYPER_COMPLETE_TEST_DISABLE_SHELL_DETECTION": "True",
+            "_CLIX_COMPLETE_TESTING": "True",
+            "_CLIX_COMPLETE_TEST_DISABLE_SHELL_DETECTION": "True",
         },
     )
     assert (
@@ -66,8 +66,8 @@ def test_completion_source_zsh():
         encoding="utf-8",
         env={
             **os.environ,
-            "_TYPER_COMPLETE_TESTING": "True",
-            "_TYPER_COMPLETE_TEST_DISABLE_SHELL_DETECTION": "True",
+            "_CLIX_COMPLETE_TESTING": "True",
+            "_CLIX_COMPLETE_TEST_DISABLE_SHELL_DETECTION": "True",
         },
     )
     assert "compdef _tutorial001py_completion tutorial001.py" in result.stdout
@@ -89,8 +89,8 @@ def test_completion_source_fish():
         encoding="utf-8",
         env={
             **os.environ,
-            "_TYPER_COMPLETE_TESTING": "True",
-            "_TYPER_COMPLETE_TEST_DISABLE_SHELL_DETECTION": "True",
+            "_CLIX_COMPLETE_TESTING": "True",
+            "_CLIX_COMPLETE_TEST_DISABLE_SHELL_DETECTION": "True",
         },
     )
     assert "complete --command tutorial001.py --no-files" in result.stdout
@@ -112,8 +112,8 @@ def test_completion_source_powershell():
         encoding="utf-8",
         env={
             **os.environ,
-            "_TYPER_COMPLETE_TESTING": "True",
-            "_TYPER_COMPLETE_TEST_DISABLE_SHELL_DETECTION": "True",
+            "_CLIX_COMPLETE_TESTING": "True",
+            "_CLIX_COMPLETE_TEST_DISABLE_SHELL_DETECTION": "True",
         },
     )
     assert (
@@ -138,8 +138,8 @@ def test_completion_source_pwsh():
         encoding="utf-8",
         env={
             **os.environ,
-            "_TYPER_COMPLETE_TESTING": "True",
-            "_TYPER_COMPLETE_TEST_DISABLE_SHELL_DETECTION": "True",
+            "_CLIX_COMPLETE_TESTING": "True",
+            "_CLIX_COMPLETE_TEST_DISABLE_SHELL_DETECTION": "True",
         },
     )
     assert (

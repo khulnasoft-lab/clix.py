@@ -1,14 +1,14 @@
-When you create a **Typer** application it uses Click underneath. And every Click application has a special object called a <a href="https://click.palletsprojects.com/en/7.x/commands/#nested-handling-and-contexts" class="external-link" target="_blank">"Context"</a> that is normally hidden.
+When you create a **Clix** application it uses Click underneath. And every Click application has a special object called a <a href="https://click.palletsprojects.com/en/7.x/commands/#nested-handling-and-contexts" class="external-link" target="_blank">"Context"</a> that is normally hidden.
 
-But you can access the context by declaring a function parameter of type `typer.Context`.
+But you can access the context by declaring a function parameter of type `clix.Context`.
 
 You might have read it in [CLI Option Callback and Context](../options/callback-and-context.md){.internal-link target=_blank}.
 
-The same way, in commands or in the main `Typer` callback you can access the context by declaring a function parameter of type `typer.Context`.
+The same way, in commands or in the main `Clix` callback you can access the context by declaring a function parameter of type `clix.Context`.
 
 ## Getting the context
 
-For example, let's say that you want to execute some logic in a `Typer` callback depending on the subcommand that is being called.
+For example, let's say that you want to execute some logic in a `Clix` callback depending on the subcommand that is being called.
 
 You can get the name of the subcommand from the context:
 
@@ -72,7 +72,7 @@ Creating user: Camila
 
 We might not want the callback to be executed if there's already other command that will be executed.
 
-For that, we can get the `typer.Context` and check if there's an invoked command in `ctx.invoked_subcommand`.
+For that, we can get the `clix.Context` and check if there's an invoked command in `ctx.invoked_subcommand`.
 
 If it's `None`, it means that we are not calling a subcommand but the main program (the callback) directly:
 

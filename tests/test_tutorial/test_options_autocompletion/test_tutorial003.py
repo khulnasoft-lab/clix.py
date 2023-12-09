@@ -2,7 +2,7 @@ import os
 import subprocess
 import sys
 
-from typer.testing import CliRunner
+from clix.testing import CliRunner
 
 from docs_src.options_autocompletion import tutorial003 as mod
 
@@ -18,8 +18,8 @@ def test_completion():
         env={
             **os.environ,
             "_TUTORIAL003.PY_COMPLETE": "complete_zsh",
-            "_TYPER_COMPLETE_ARGS": "tutorial003.py --name Seb",
-            "_TYPER_COMPLETE_TESTING": "True",
+            "_CLIX_COMPLETE_ARGS": "tutorial003.py --name Seb",
+            "_CLIX_COMPLETE_TESTING": "True",
         },
     )
     assert "Camila" not in result.stdout

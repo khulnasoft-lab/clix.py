@@ -1,6 +1,6 @@
-import typer
+import clix
 
-app = typer.Typer()
+app = clix.Clix()
 
 
 def old_callback():
@@ -9,8 +9,8 @@ def old_callback():
     """
 
 
-users_app = typer.Typer(callback=old_callback)
-app.add_typer(users_app)
+users_app = clix.Clix(callback=old_callback)
+app.add_clix(users_app)
 
 
 @users_app.callback()

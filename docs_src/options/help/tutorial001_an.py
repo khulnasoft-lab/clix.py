@@ -1,11 +1,11 @@
-import typer
+import clix
 from typing_extensions import Annotated
 
 
 def main(
     name: str,
-    lastname: Annotated[str, typer.Option(help="Last name of person to greet.")] = "",
-    formal: Annotated[bool, typer.Option(help="Say hi formally.")] = False,
+    lastname: Annotated[str, clix.Option(help="Last name of person to greet.")] = "",
+    formal: Annotated[bool, clix.Option(help="Say hi formally.")] = False,
 ):
     """
     Say hi to NAME, optionally with a --lastname.
@@ -19,4 +19,4 @@ def main(
 
 
 if __name__ == "__main__":
-    typer.run(main)
+    clix.run(main)

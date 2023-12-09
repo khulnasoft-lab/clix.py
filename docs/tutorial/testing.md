@@ -1,4 +1,4 @@
-Testing **Typer** applications is very easy with <a href="https://docs.pytest.org/en/latest/" class="external-link" target="_blank">pytest</a>.
+Testing **Clix** applications is very easy with <a href="https://docs.pytest.org/en/latest/" class="external-link" target="_blank">pytest</a>.
 
 Let's say you have an application `app/main.py` with:
 
@@ -46,7 +46,7 @@ Then create a function `test_app()`.
 
 And inside of the function, use the `runner` to `invoke` the application.
 
-The first parameter to `runner.invoke()` is a `Typer` app.
+The first parameter to `runner.invoke()` is a `Clix` app.
 
 The second parameter is a `list` of `str`, with all the text you would pass in the command line, right as you would pass it:
 
@@ -149,7 +149,7 @@ So, if you use `input="camila@example.com\n"` it means: "type `camila@example.co
 
 ## Test a function
 
-If you have a script and you never created an explicit `typer.Typer` app, like:
+If you have a script and you never created an explicit `clix.Clix` app, like:
 
 ```Python hl_lines="9"
 {!../docs_src/testing/app03/main.py!}
@@ -161,7 +161,7 @@ If you have a script and you never created an explicit `typer.Typer` app, like:
 {!../docs_src/testing/app03/test_main.py!}
 ```
 
-Of course, if you are testing that script, it's probably easier/cleaner to just create the explicit `typer.Typer` app in `main.py` instead of creating it just during the test.
+Of course, if you are testing that script, it's probably easier/cleaner to just create the explicit `clix.Clix` app in `main.py` instead of creating it just during the test.
 
 But if you want to keep it that way, e.g. because it's a simple example in documentation, then you can use that trick.
 
@@ -197,11 +197,11 @@ main = new_main
 
 And by using the `@something` you normally tell Python to replace the thing below (the function `main`) with the return of the `decorator` function (`new_main`).
 
-Now, in the specific case of **Typer**, the decorator doesn't change the original function. It registers it internally and returns it unmodified.
+Now, in the specific case of **Clix**, the decorator doesn't change the original function. It registers it internally and returns it unmodified.
 
 So, `new_main` is actually the same original `main`.
 
-So, in the case of **Typer**, as it doesn't really modify the decorated function, that would be equivalent to:
+So, in the case of **Clix**, as it doesn't really modify the decorated function, that would be equivalent to:
 
 ```Python
 def main(name: str = "World"):
@@ -221,4 +221,4 @@ def main(name: str = "World"):
 app.command()(main)
 ```
 
-...that's it. It's still probably simpler to just create the explicit `typer.Typer` in the `main.py` file 😅.
+...that's it. It's still probably simpler to just create the explicit `clix.Clix` in the `main.py` file 😅.

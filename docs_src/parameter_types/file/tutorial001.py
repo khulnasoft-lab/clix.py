@@ -1,10 +1,10 @@
-import typer
+import clix
 
 
-def main(config: typer.FileText = typer.Option(...)):
+def main(config: clix.FileText = clix.Option(...)):
     for line in config:
         print(f"Config line: {line}")
 
 
 if __name__ == "__main__":
-    typer.run(main)
+    clix.run(main)

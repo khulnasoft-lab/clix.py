@@ -1,16 +1,16 @@
 from typing import List, Optional
 
-import typer
+import clix
 from typing_extensions import Annotated
 
 
-def main(user: Annotated[Optional[List[str]], typer.Option()] = None):
+def main(user: Annotated[Optional[List[str]], clix.Option()] = None):
     if not user:
         print("No provided users")
-        raise typer.Abort()
+        raise clix.Abort()
     for u in user:
         print(f"Processing user: {u}")
 
 
 if __name__ == "__main__":
-    typer.run(main)
+    clix.run(main)

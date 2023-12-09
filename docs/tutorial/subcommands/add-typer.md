@@ -1,6 +1,6 @@
 We'll start with the core idea.
 
-To add a `typer.Typer()` app inside of another.
+To add a `clix.Clix()` app inside of another.
 
 ## Manage items
 
@@ -52,7 +52,7 @@ Both parts are similar. In fact, `items.py` and `users.py` both have commands `c
 
 But we need them to be part of the same *CLI program*.
 
-In this case, as with `git remote`, we can put them together as subcommands in another `typer.Typer()` *CLI program*.
+In this case, as with `git remote`, we can put them together as subcommands in another `clix.Clix()` *CLI program*.
 
 Now create a `main.py` with:
 
@@ -63,9 +63,9 @@ Now create a `main.py` with:
 Here's what we do in `main.py`:
 
 * Import the other Python modules (the files `users.py` and `items.py`).
-* Create the main `typer.Typer()` application.
-* Use `app.add_typer()` to include the `app` from `items.py` and `users.py`, each of those 2 was also created with `typer.Typer()`.
-* Define a `name` with the command that will be used for each of these "sub-Typers" to group their own commands.
+* Create the main `clix.Clix()` application.
+* Use `app.add_clix()` to include the `app` from `items.py` and `users.py`, each of those 2 was also created with `clix.Clix()`.
+* Define a `name` with the command that will be used for each of these "sub-Clixs" to group their own commands.
 
 And now your *CLI program* has 2 commands:
 
@@ -158,12 +158,12 @@ Creating user: Camila
 
 That's the core idea.
 
-You can just create `typer.Typer()` apps and add them inside one another.
+You can just create `clix.Clix()` apps and add them inside one another.
 
 And you can do that with any levels of commands that you want.
 
-Do you need sub-sub-sub-subcommands? Go ahead, create all the `typer.Typer()`s you need and put them together with `app.add_typer()`.
+Do you need sub-sub-sub-subcommands? Go ahead, create all the `clix.Clix()`s you need and put them together with `app.add_clix()`.
 
 In the next sections we'll update this with more features, but you already have the core idea.
 
-This way, in the same spirit of Click, **Typer** applications are composable, each `typer.Typer()` can be a *CLI app* by itself, but it can also be added as a command group to another Typer app.
+This way, in the same spirit of Click, **Clix** applications are composable, each `clix.Clix()` can be a *CLI app* by itself, but it can also be added as a command group to another Clix app.

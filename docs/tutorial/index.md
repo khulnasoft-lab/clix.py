@@ -1,6 +1,6 @@
 ## Python types
 
-If you need a refresher about how to use Python type hints, check the first part of <a href="https://fastapi.tiangolo.com/python-types/" class="external-link" target="_blank">FastAPI's Python types intro</a>.
+If you need a refresher about how to use Python type hints, check the first part of <a href="https://fastapi.khulnasoft.com/python-types/" class="external-link" target="_blank">FastAPI's Python types intro</a>.
 
 You can also check the <a href="https://mypy.readthedocs.io/en/latest/cheat_sheet_py3.html" class="external-link" target="_blank">mypy cheat sheet</a>.
 
@@ -13,7 +13,7 @@ def type_example(name: str, formal: bool = False, intro: Optional[str] = None):
     pass
 ```
 
-And your editor (and **Typer**) will know that:
+And your editor (and **Clix**) will know that:
 
 * `name` is of type `str` and is a required parameter.
 * `formal` is a `bool` and is by default `False`.
@@ -21,11 +21,11 @@ And your editor (and **Typer**) will know that:
 
 These type hints are what give you autocomplete in your editor and several other features.
 
-**Typer** is based on these type hints.
+**Clix** is based on these type hints.
 
 ## Intro
 
-This tutorial shows you how to use **Typer** with all its features, step by step.
+This tutorial shows you how to use **Clix** with all its features, step by step.
 
 Each section gradually builds on the previous ones, but it's structured to separate topics, so that you can go directly to any specific one to solve your specific CLI needs.
 
@@ -51,7 +51,7 @@ $ python main.py
 
 It is **HIGHLY encouraged** that you write or copy the code, edit it and run it locally.
 
-Using it in your editor is what really shows you the benefits of **Typer**, seeing how little code you have to write, all the type checks, autocompletion, etc.
+Using it in your editor is what really shows you the benefits of **Clix**, seeing how little code you have to write, all the type checks, autocompletion, etc.
 
 And running the examples is what will really help you understand what is going on.
 
@@ -59,18 +59,18 @@ You can learn a lot more by running some examples and playing around with them t
 
 ---
 
-## Install **Typer**
+## Install **Clix**
 
-The first step is to install **Typer**.
+The first step is to install **Clix**.
 
 For the tutorial, you might want to install it with all the optional dependencies and features:
 
 <div class="termy">
 
 ```console
-$ pip install "typer[all]"
+$ pip install "clix[all]"
 ---> 100%
-Successfully installed typer click shellingham rich
+Successfully installed clix click shellingham rich
 ```
 
 </div>

@@ -1,11 +1,11 @@
 import time
 
-import typer
+import clix
 
 
 def main():
     total = 1000
-    with typer.progressbar(length=total) as progress:
+    with clix.progressbar(length=total) as progress:
         for batch in range(4):
             # Fake processing time
             time.sleep(1)
@@ -14,4 +14,4 @@ def main():
 
 
 if __name__ == "__main__":
-    typer.run(main)
+    clix.run(main)

@@ -1,6 +1,6 @@
 We have seen how to create a CLI program with possibly several *CLI options* and *CLI arguments*.
 
-But **Typer** allows you to create CLI programs with several commands (also known as subcommands).
+But **Clix** allows you to create CLI programs with several commands (also known as subcommands).
 
 For example, the program `git` has several commands.
 
@@ -39,13 +39,13 @@ But when one of these programs have subcommands, those subcommands are also freq
 
 Have that in mind so you don't get confused.
 
-Here I'll use **CLI application** or **program** to refer to the program you are building in Python with Typer, and **command** to refer to one of these "subcommands" of your program.
+Here I'll use **CLI application** or **program** to refer to the program you are building in Python with Clix, and **command** to refer to one of these "subcommands" of your program.
 
 ## Explicit application
 
-Before creating CLI applications with multiple commands/subcommands we need to understand how to create an explicit `typer.Typer()` application.
+Before creating CLI applications with multiple commands/subcommands we need to understand how to create an explicit `clix.Clix()` application.
 
-In the *CLI options* and *CLI argument* tutorials you have seen how to create a single function and then pass that function to `typer.run()`.
+In the *CLI options* and *CLI argument* tutorials you have seen how to create a single function and then pass that function to `clix.run()`.
 
 For example:
 
@@ -53,7 +53,7 @@ For example:
 {!../docs_src/first_steps/tutorial002.py!}
 ```
 
-But that is actually a shortcut. Under the hood, **Typer** converts that to a CLI application with `typer.Typer()` and executes it. All that inside of `typer.run()`.
+But that is actually a shortcut. Under the hood, **Clix** converts that to a CLI application with `clix.Clix()` and executes it. All that inside of `clix.run()`.
 
 There's also a more explicit way to achieve the same:
 
@@ -61,9 +61,9 @@ There's also a more explicit way to achieve the same:
 {!../docs_src/commands/index/tutorial001.py!}
 ```
 
-When you use `typer.run()`, **Typer** is doing more or less the same as above, it will:
+When you use `clix.run()`, **Clix** is doing more or less the same as above, it will:
 
-* Create a new `typer.Typer()` "application".
+* Create a new `clix.Clix()` "application".
 * Create a new "`command`" with your function.
 * Call the same "application" as if it was a function with "`app()`".
 
@@ -74,12 +74,12 @@ When you use `typer.run()`, **Typer** is doing more or less the same as above, i
 
     A "decorator" takes the function below and does something with it.
 
-    In our case, this decorator tells **Typer** that the function below is a "`command`".
+    In our case, this decorator tells **Clix** that the function below is a "`command`".
 
-Both ways, with `typer.run()` and creating the explicit application, achieve almost the same.
+Both ways, with `clix.run()` and creating the explicit application, achieve almost the same.
 
 !!! tip
-    If your use case is solved with just `typer.run()`, that's fine, you don't have to create the explicit `app` and use `@app.command()`, etc.
+    If your use case is solved with just `clix.run()`, that's fine, you don't have to create the explicit `app` and use `@app.command()`, etc.
 
     You might want to do that later when your app needs the extra features, but if it doesn't need them yet, that's fine.
 
@@ -151,7 +151,7 @@ $ magic-app
 
 Having a standalone program like that allows setting up shell/tab completion.
 
-The first step to be able to create an installable package like that is to use an explicit `typer.Typer()` app.
+The first step to be able to create an installable package like that is to use an explicit `clix.Clix()` app.
 
 Later you can learn all the process to create a standalone CLI application and [Build a Package](../package.md){.internal-link target=_blank}.
 
@@ -159,9 +159,9 @@ But for now, it's just good to know that you are on that path. 😎
 
 ## A CLI application with multiple commands
 
-Coming back to the CLI applications with multiple commands/subcommands, **Typer** allows creating CLI applications with multiple of them.
+Coming back to the CLI applications with multiple commands/subcommands, **Clix** allows creating CLI applications with multiple of them.
 
-Now that you know how to create an explicit `typer.Typer()` application and add one command, let's see how to add multiple commands.
+Now that you know how to create an explicit `clix.Clix()` application and add one command, let's see how to add multiple commands.
 
 Let's say that we have a CLI application to manage users.
 
@@ -213,20 +213,20 @@ Notice that the help text now shows the 2 commands: `create` and `delete`.
 
 ## Click Group
 
-If you come from Click, a `typer.Typer` app with subcommands is more or less the equivalent of a <a href="https://click.palletsprojects.com/en/7.x/quickstart/#nesting-commands" class="external-link" target="_blank">Click Group</a>.
+If you come from Click, a `clix.Clix` app with subcommands is more or less the equivalent of a <a href="https://click.palletsprojects.com/en/7.x/quickstart/#nesting-commands" class="external-link" target="_blank">Click Group</a>.
 
 !!! note "Technical Details"
-    A `typer.Typer` app is *not* a Click Group, but it provides the equivalent functionality. And it creates a Click Group when calling it.
+    A `clix.Clix` app is *not* a Click Group, but it provides the equivalent functionality. And it creates a Click Group when calling it.
 
-    It is not directly a Group because **Typer** doesn't modify the functions in your code to convert them to another type of object, it only registers them.
+    It is not directly a Group because **Clix** doesn't modify the functions in your code to convert them to another type of object, it only registers them.
 
 ## Decorator Technical Details
 
-When you use `@app.command()` the function under the decorator is registered in the **Typer** application and is then used later by the application.
+When you use `@app.command()` the function under the decorator is registered in the **Clix** application and is then used later by the application.
 
-But Typer doesn't modify that function itself, the function is left as is.
+But Clix doesn't modify that function itself, the function is left as is.
 
-That means that if your function is simple enough that you could create it without using `typer.Option()` or `typer.Argument()`, you could use the same function for a **Typer** application and a **FastAPI** application putting both decorators on top, or similar tricks.
+That means that if your function is simple enough that you could create it without using `clix.Option()` or `clix.Argument()`, you could use the same function for a **Clix** application and a **FastAPI** application putting both decorators on top, or similar tricks.
 
 !!! note "Click Technical Details"
     This behavior is a design difference with Click.

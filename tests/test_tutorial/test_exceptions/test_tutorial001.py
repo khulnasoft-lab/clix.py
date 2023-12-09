@@ -3,7 +3,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-from typer.testing import CliRunner
+from clix.testing import CliRunner
 
 from docs_src.exceptions import tutorial001 as mod
 
@@ -17,11 +17,11 @@ def test_traceback_rich():
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
         encoding="utf-8",
-        env={**os.environ, "_TYPER_STANDARD_TRACEBACK": ""},
+        env={**os.environ, "_CLIX_STANDARD_TRACEBACK": ""},
     )
     assert "return get_command(self)(*args, **kwargs)" not in result.stderr
 
-    assert "typer.run(main)" not in result.stderr
+    assert "clix.run(main)" not in result.stderr
     assert "print(name + 3)" in result.stderr
 
     # TODO: when deprecating Python 3.6, remove second option
@@ -39,11 +39,11 @@ def test_standard_traceback_env_var():
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
         encoding="utf-8",
-        env={**os.environ, "_TYPER_STANDARD_TRACEBACK": "1"},
+        env={**os.environ, "_CLIX_STANDARD_TRACEBACK": "1"},
     )
     assert "return get_command(self)(*args, **kwargs)" in result.stderr
 
-    assert "typer.run(main)" in result.stderr
+    assert "clix.run(main)" in result.stderr
     assert "print(name + 3)" in result.stderr
 
     # TODO: when deprecating Python 3.6, remove second option

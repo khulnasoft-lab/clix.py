@@ -1,13 +1,13 @@
-import typer
+import clix
 
 
 def main(
     name: str,
-    lastname: str = typer.Option("", help="Last name of person to greet."),
-    formal: bool = typer.Option(
+    lastname: str = clix.Option("", help="Last name of person to greet."),
+    formal: bool = clix.Option(
         False, help="Say hi formally.", rich_help_panel="Customization and Utils"
     ),
-    debug: bool = typer.Option(
+    debug: bool = clix.Option(
         False, help="Enable debugging.", rich_help_panel="Customization and Utils"
     ),
 ):
@@ -23,4 +23,4 @@ def main(
 
 
 if __name__ == "__main__":
-    typer.run(main)
+    clix.run(main)

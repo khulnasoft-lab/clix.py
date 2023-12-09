@@ -1,15 +1,15 @@
 import errno
 
-import typer
-import typer.completion
-from typer.testing import CliRunner
+import clix
+import clix.completion
+from clix.testing import CliRunner
 
 runner = CliRunner()
 
 
 def test_eoferror():
     # Mainly for coverage/completeness
-    app = typer.Typer()
+    app = clix.Clix()
 
     @app.command()
     def main():
@@ -21,7 +21,7 @@ def test_eoferror():
 
 def test_oserror():
     # Mainly for coverage/completeness
-    app = typer.Typer()
+    app = clix.Clix()
 
     @app.command()
     def main():
@@ -35,7 +35,7 @@ def test_oserror():
 
 def test_oserror_no_epipe():
     # Mainly for coverage/completeness
-    app = typer.Typer()
+    app = clix.Clix()
 
     @app.command()
     def main():

@@ -1,6 +1,6 @@
-import typer
+import clix
 
-app = typer.Typer()
+app = clix.Clix()
 
 
 @app.command()
@@ -8,7 +8,7 @@ def main(name: str = "morty"):
     print(name)
 
 
-broken_app = typer.Typer()
+broken_app = clix.Clix()
 
 
 @broken_app.command()
@@ -19,4 +19,4 @@ def broken(name: str = "morty"):
 if __name__ == "__main__":
     app(standalone_mode=False)
 
-    typer.main.get_command(broken_app)()
+    clix.main.get_command(broken_app)()

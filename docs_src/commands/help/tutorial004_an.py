@@ -1,13 +1,13 @@
-import typer
+import clix
 from typing_extensions import Annotated
 
-app = typer.Typer(rich_markup_mode="rich")
+app = clix.Clix(rich_markup_mode="rich")
 
 
 @app.command()
 def create(
     username: Annotated[
-        str, typer.Argument(help="The username to be [green]created[/green]")
+        str, clix.Argument(help="The username to be [green]created[/green]")
     ]
 ):
     """
@@ -21,10 +21,10 @@ def create(
 @app.command(help="[bold red]Delete[/bold red] a user with [italic]USERNAME[/italic].")
 def delete(
     username: Annotated[
-        str, typer.Argument(help="The username to be [red]deleted[/red]")
+        str, clix.Argument(help="The username to be [red]deleted[/red]")
     ],
     force: Annotated[
-        bool, typer.Option(help="Force the [bold red]deletion[/bold red] :boom:")
+        bool, clix.Option(help="Force the [bold red]deletion[/bold red] :boom:")
     ] = False,
 ):
     """

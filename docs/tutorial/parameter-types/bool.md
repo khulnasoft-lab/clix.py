@@ -1,4 +1,4 @@
-We have seen some examples of *CLI options* with `bool`, and how **Typer** creates `--something` and `--no-something` automatically.
+We have seen some examples of *CLI options* with `bool`, and how **Clix** creates `--something` and `--no-something` automatically.
 
 But we can customize those names.
 

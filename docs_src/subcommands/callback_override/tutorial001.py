@@ -1,9 +1,9 @@
-import typer
+import clix
 
-app = typer.Typer()
+app = clix.Clix()
 
-users_app = typer.Typer()
-app.add_typer(users_app, name="users")
+users_app = clix.Clix()
+app.add_clix(users_app, name="users")
 
 
 @users_app.callback()

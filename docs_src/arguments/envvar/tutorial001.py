@@ -1,9 +1,9 @@
-import typer
+import clix
 
 
-def main(name: str = typer.Argument("World", envvar="AWESOME_NAME")):
+def main(name: str = clix.Argument("World", envvar="AWESOME_NAME")):
     print(f"Hello Mr. {name}")
 
 
 if __name__ == "__main__":
-    typer.run(main)
+    clix.run(main)

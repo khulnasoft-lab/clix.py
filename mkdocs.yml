@@ -1,6 +1,6 @@
-site_name: Typer
-site_description: Typer, build great CLIs. Easy to code. Based on Python type hints.
-site_url: https://typer.tiangolo.com/
+site_name: Clix
+site_description: Clix, build great CLIs. Easy to code. Based on Python type hints.
+site_url: https://clix.khulnasoft.com/
 
 theme:
   name: material
@@ -13,12 +13,12 @@ theme:
   logo: img/icon-white.svg
   favicon: img/favicon.png
 
-repo_name: tiangolo/typer
-repo_url: https://github.com/tiangolo/typer
+repo_name: khulnasoft-lab/clix.py
+repo_url: https://github.com/khulnasoft-lab/clix.py
 edit_uri: ""
 
 nav:
-  - Typer: index.md
+  - Clix: index.md
   - Features: features.md
   - Tutorial - User Guide:
       - Tutorial - User Guide - Intro: tutorial/index.md
@@ -47,7 +47,7 @@ nav:
           - Command CLI Options: tutorial/commands/options.md
           - Command Help: tutorial/commands/help.md
           - Custom Command Name: tutorial/commands/name.md
-          - Typer Callback: tutorial/commands/callback.md
+          - Clix Callback: tutorial/commands/callback.md
           - One or Multiple Commands: tutorial/commands/one-or-multiple.md
           - Using the Context: tutorial/commands/context.md
       - CLI Option autocompletion: tutorial/options-autocompletion.md
@@ -63,10 +63,10 @@ nav:
           - Custom Types: tutorial/parameter-types/custom-types.md
       - SubCommands - Command Groups:
           - SubCommands - Command Groups - Intro: tutorial/subcommands/index.md
-          - Add Typer: tutorial/subcommands/add-typer.md
+          - Add Clix: tutorial/subcommands/add-clix.md
           - SubCommands in a Single File: tutorial/subcommands/single-file.md
           - Nested SubCommands: tutorial/subcommands/nested-subcommands.md
-          - Sub-Typer Callback Override: tutorial/subcommands/callback-override.md
+          - Sub-Clix Callback Override: tutorial/subcommands/callback-override.md
           - SubCommand Name and Help: tutorial/subcommands/name-and-help.md
       - Multiple Values:
           - Multiple Values Intro: tutorial/multiple-values/index.md
@@ -81,9 +81,9 @@ nav:
       - Using Click: tutorial/using-click.md
       - Building a Package: tutorial/package.md
       - tutorial/exceptions.md
-  - Typer CLI - completion for small scripts: typer-cli.md
+  - Clix CLI - completion for small scripts: clix-cli.md
   - Alternatives, Inspiration and Comparisons: alternatives.md
-  - Help Typer - Get Help: help-typer.md
+  - Help Clix - Get Help: help-clix.md
   - Development - Contributing: contributing.md
   - Release Notes: release-notes.md
 
@@ -114,17 +114,17 @@ extra:
     property: G-T78C5GNRXK
   social:
     - icon: fontawesome/brands/github-alt
-      link: https://github.com/tiangolo/typer
+      link: https://github.com/khulnasoft-lab/clix.py
     - icon: fontawesome/brands/twitter
-      link: https://twitter.com/tiangolo
+      link: https://twitter.com/khulnasoft-lab
     - icon: fontawesome/brands/linkedin
-      link: https://www.linkedin.com/in/tiangolo
+      link: https://www.linkedin.com/in/khulnasoft-lab
     - icon: fontawesome/brands/dev
-      link: https://dev.to/tiangolo
+      link: https://dev.to/khulnasoft-lab
     - icon: fontawesome/brands/medium
-      link: https://medium.com/@tiangolo
+      link: https://medium.com/@khulnasoft-lab
     - icon: fontawesome/solid/globe
-      link: https://tiangolo.com
+      link: https://khulnasoft.com
 
 extra_css:
   - css/termynal.css

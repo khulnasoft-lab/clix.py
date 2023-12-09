@@ -1,10 +1,10 @@
-import typer
+import clix
 from typing_extensions import Annotated
 
 
 def main(
-    name: Annotated[str, typer.Option("--name", "-n")],
-    formal: Annotated[bool, typer.Option("--formal", "-f")] = False,
+    name: Annotated[str, clix.Option("--name", "-n")],
+    formal: Annotated[bool, clix.Option("--formal", "-f")] = False,
 ):
     if formal:
         print(f"Good day Ms. {name}.")
@@ -13,4 +13,4 @@ def main(
 
 
 if __name__ == "__main__":
-    typer.run(main)
+    clix.run(main)

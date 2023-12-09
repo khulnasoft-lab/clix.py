@@ -1,8 +1,8 @@
-import typer
+import clix
 from typing_extensions import Annotated
 
 
-def main(name: Annotated[str, typer.Argument(help="Who to greet")] = "World"):
+def main(name: Annotated[str, clix.Argument(help="Who to greet")] = "World"):
     """
     Say hi to NAME very gently, like Dirk.
     """
@@ -10,4 +10,4 @@ def main(name: Annotated[str, typer.Argument(help="Who to greet")] = "World"):
 
 
 if __name__ == "__main__":
-    typer.run(main)
+    clix.run(main)

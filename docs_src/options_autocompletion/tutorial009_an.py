@@ -1,6 +1,6 @@
 from typing import List
 
-import typer
+import clix
 from rich.console import Console
 from typing_extensions import Annotated
 
@@ -13,7 +13,7 @@ valid_completion_items = [
 err_console = Console(stderr=True)
 
 
-def complete_name(ctx: typer.Context, args: List[str], incomplete: str):
+def complete_name(ctx: clix.Context, args: List[str], incomplete: str):
     err_console.print(f"{args}")
     names = ctx.params.get("name") or []
     for name, help_text in valid_completion_items:
@@ -21,14 +21,14 @@ def complete_name(ctx: typer.Context, args: List[str], incomplete: str):
             yield (name, help_text)
 
 
-app = typer.Typer()
+app = clix.Clix()
 
 
 @app.command()
 def main(
     name: Annotated[
         List[str],
-        typer.Option(help="The name to say hi to.", autocompletion=complete_name),
+        clix.Option(help="The name to say hi to.", autocompletion=complete_name),
     ] = ["World"],
 ):
     for n in name:

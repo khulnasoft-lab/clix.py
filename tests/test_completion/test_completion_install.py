@@ -5,13 +5,13 @@ from pathlib import Path
 from unittest import mock
 
 import shellingham
-import typer
-from typer.testing import CliRunner
+import clix
+from clix.testing import CliRunner
 
 from docs_src.commands.index import tutorial001 as mod
 
 runner = CliRunner()
-app = typer.Typer()
+app = clix.Clix()
 app.command()(mod.main)
 
 
@@ -23,8 +23,8 @@ def test_completion_install_no_shell():
         encoding="utf-8",
         env={
             **os.environ,
-            "_TYPER_COMPLETE_TESTING": "True",
-            "_TYPER_COMPLETE_TEST_DISABLE_SHELL_DETECTION": "True",
+            "_CLIX_COMPLETE_TESTING": "True",
+            "_CLIX_COMPLETE_TEST_DISABLE_SHELL_DETECTION": "True",
         },
     )
     # TODO: when deprecating Click 7, remove second option
@@ -54,8 +54,8 @@ def test_completion_install_bash():
         encoding="utf-8",
         env={
             **os.environ,
-            "_TYPER_COMPLETE_TESTING": "True",
-            "_TYPER_COMPLETE_TEST_DISABLE_SHELL_DETECTION": "True",
+            "_CLIX_COMPLETE_TESTING": "True",
+            "_CLIX_COMPLETE_TEST_DISABLE_SHELL_DETECTION": "True",
         },
     )
     new_text = bash_completion_path.read_text()
@@ -97,8 +97,8 @@ def test_completion_install_zsh():
         encoding="utf-8",
         env={
             **os.environ,
-            "_TYPER_COMPLETE_TESTING": "True",
-            "_TYPER_COMPLETE_TEST_DISABLE_SHELL_DETECTION": "True",
+            "_CLIX_COMPLETE_TESTING": "True",
+            "_CLIX_COMPLETE_TEST_DISABLE_SHELL_DETECTION": "True",
         },
     )
     new_text = completion_path.read_text()
@@ -134,8 +134,8 @@ def test_completion_install_fish():
         encoding="utf-8",
         env={
             **os.environ,
-            "_TYPER_COMPLETE_TESTING": "True",
-            "_TYPER_COMPLETE_TEST_DISABLE_SHELL_DETECTION": "True",
+            "_CLIX_COMPLETE_TESTING": "True",
+            "_CLIX_COMPLETE_TEST_DISABLE_SHELL_DETECTION": "True",
         },
     )
     new_text = completion_path.read_text()
@@ -146,7 +146,7 @@ def test_completion_install_fish():
 
 
 runner = CliRunner()
-app = typer.Typer()
+app = clix.Clix()
 app.command()(mod.main)
 
 
@@ -170,7 +170,7 @@ def test_completion_install_powershell():
             ),
         ):
             result = runner.invoke(app, ["--install-completion"])
-    install_script = "Register-ArgumentCompleter -Native -CommandName mocked-typer-testing-app -ScriptBlock $scriptblock"
+    install_script = "Register-ArgumentCompleter -Native -CommandName mocked-clix-testing-app -ScriptBlock $scriptblock"
     parent: Path = completion_path.parent
     parent.mkdir(parents=True, exist_ok=True)
     completion_path.write_text(install_script)

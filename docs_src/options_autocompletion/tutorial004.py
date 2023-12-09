@@ -1,4 +1,4 @@
-import typer
+import clix
 
 valid_completion_items = [
     ("Camila", "The reader of books."),
@@ -16,12 +16,12 @@ def complete_name(incomplete: str):
     return completion
 
 
-app = typer.Typer()
+app = clix.Clix()
 
 
 @app.command()
 def main(
-    name: str = typer.Option(
+    name: str = clix.Option(
         "World", help="The name to say hi to.", autocompletion=complete_name
     )
 ):

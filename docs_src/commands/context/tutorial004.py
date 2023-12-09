@@ -1,12 +1,12 @@
-import typer
+import clix
 
-app = typer.Typer()
+app = clix.Clix()
 
 
 @app.command(
     context_settings={"allow_extra_args": True, "ignore_unknown_options": True}
 )
-def main(ctx: typer.Context):
+def main(ctx: clix.Context):
     for extra_arg in ctx.args:
         print(f"Got extra arg: {extra_arg}")
 

@@ -1,7 +1,7 @@
-import typer
-import typer.main
+import clix
+import clix.main
 
-typer.main.rich = None
+clix.main.rich = None
 
 
 def main(name: str = "morty"):
@@ -9,4 +9,4 @@ def main(name: str = "morty"):
 
 
 if __name__ == "__main__":
-    typer.run(main)
+    clix.run(main)

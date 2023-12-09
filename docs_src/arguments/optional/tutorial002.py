@@ -1,9 +1,9 @@
 from typing import Optional
 
-import typer
+import clix
 
 
-def main(name: Optional[str] = typer.Argument(default=None)):
+def main(name: Optional[str] = clix.Argument(default=None)):
     if name is None:
         print("Hello World!")
     else:
@@ -11,4 +11,4 @@ def main(name: Optional[str] = typer.Argument(default=None)):
 
 
 if __name__ == "__main__":
-    typer.run(main)
+    clix.run(main)

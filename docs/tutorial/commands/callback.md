@@ -1,4 +1,4 @@
-When you create an `app = typer.Typer()` it works as a group of commands.
+When you create an `app = clix.Clix()` it works as a group of commands.
 
 And you can create multiple commands with it.
 
@@ -74,7 +74,7 @@ Error: no such option: --verbose
 
 ## Adding a callback on creation
 
-It's also possible to add a callback when creating the `typer.Typer()` app:
+It's also possible to add a callback when creating the `clix.Clix()` app:
 
 ```Python hl_lines="4 5  8"
 {!../docs_src/commands/callback/tutorial002.py!}
@@ -97,7 +97,7 @@ Creating user: Camila
 
 ## Overriding a callback
 
-If you added a callback when creating the `typer.Typer()` app, it's possible to override it with `@app.callback()`:
+If you added a callback when creating the `clix.Clix()` app, it's possible to override it with `@app.callback()`:
 
 ```Python hl_lines="11 12 13"
 {!../docs_src/commands/callback/tutorial003.py!}
@@ -165,7 +165,7 @@ Creating user: Camila
 
 ## Click Group
 
-If you come from Click, this **Typer** callback is the equivalent of the function in a <a href="https://click.palletsprojects.com/en/7.x/quickstart/#nesting-commands" class="external-link" target="_blank">Click Group</a>.
+If you come from Click, this **Clix** callback is the equivalent of the function in a <a href="https://click.palletsprojects.com/en/7.x/quickstart/#nesting-commands" class="external-link" target="_blank">Click Group</a>.
 
 For example:
 
@@ -177,9 +177,9 @@ def cli():
     pass
 ```
 
-The original function `cli` would be the equivalent of a Typer callback.
+The original function `cli` would be the equivalent of a Clix callback.
 
 !!! note "Technical Details"
     When using Click, it converts that `cli` variable to a Click `Group` object. And then the original function no longer exists in that variable.
 
-    **Typer** doesn't do that, the callback function is not modified, only registered in the `typer.Typer` app. This is intentional, it's part of **Typer**'s design, to allow having editor auto completion and type checks.
+    **Clix** doesn't do that, the callback function is not modified, only registered in the `clix.Clix` app. This is intentional, it's part of **Clix**'s design, to allow having editor auto completion and type checks.

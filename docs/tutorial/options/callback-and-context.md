@@ -21,11 +21,11 @@ For example, you could do some validation before the rest of the code is execute
     {!> ../docs_src/options/callback/tutorial001.py!}
     ```
 
-Here you pass a function to `typer.Option()` or `typer.Argument()` with the keyword argument `callback`.
+Here you pass a function to `clix.Option()` or `clix.Argument()` with the keyword argument `callback`.
 
 The function receives the value from the command line. It can do anything with it, and then return the value.
 
-In this case, if the `--name` is not `Camila` we raise a `typer.BadParameter()` exception.
+In this case, if the `--name` is not `Camila` we raise a `clix.BadParameter()` exception.
 
 The `BadParameter` exception is special, it shows the error with the parameter that generated it.
 
@@ -54,41 +54,41 @@ There's something to be aware of with callbacks and completion that requires som
 
 But first let's just use completion in your shell (Bash, Zsh, Fish, or PowerShell).
 
-After installing completion (for your own Python package or for **Typer CLI**), when you use your CLI program and start adding a *CLI option* with `--` an then hit <kbd>TAB</kbd>, your shell will show you the available *CLI options* (the same for *CLI arguments*, etc).
+After installing completion (for your own Python package or for **Clix CLI**), when you use your CLI program and start adding a *CLI option* with `--` an then hit <kbd>TAB</kbd>, your shell will show you the available *CLI options* (the same for *CLI arguments*, etc).
 
-To check it quickly without creating a new Python package, install [Typer CLI](../../typer-cli.md){.internal-link target=_blank} and use it with the previous script:
+To check it quickly without creating a new Python package, install [Clix CLI](../../clix-cli.md){.internal-link target=_blank} and use it with the previous script:
 
 <div class="termy">
 
 ```console
 // Hit the TAB key in your keyboard below where you see the: [TAB]
-$ typer ./main.py [TAB][TAB]
+$ clix ./main.py [TAB][TAB]
 
 // Depending on your terminal/shell you will get some completion like this ✨
-run    -- Run the provided Typer app.
-utils  -- Extra utility commands for Typer apps.
+run    -- Run the provided Clix app.
+utils  -- Extra utility commands for Clix apps.
 
 // Then try with "run" and --help
-$ typer ./main.py run --help
+$ clix ./main.py run --help
 
 // You get a help text with your CLI options as you normally would
-Usage: typer run [OPTIONS]
+Usage: clix run [OPTIONS]
 
-  Run the provided Typer app.
+  Run the provided Clix app.
 
 Options:
   --name TEXT  [required]
   --help       Show this message and exit.
 
 // Then try completion with your program
-$ typer ./main.py run --[TAB][TAB]
+$ clix ./main.py run --[TAB][TAB]
 
 // You get completion for CLI options
 --help  -- Show this message and exit.
 --name
 
 // And you can run it as if it was with Python directly
-$ typer ./main.py run --name Camila
+$ clix ./main.py run --name Camila
 
 Hello Camila
 ```
@@ -97,7 +97,7 @@ Hello Camila
 
 ### How shell completion works
 
-The way it works internally is that the shell/terminal will call your CLI program with some special environment variables (that hold the current *CLI parameters*, etc) and your CLI program will print some special values that the shell will use to present completion. All this is handled for you by **Typer** behind the scenes.
+The way it works internally is that the shell/terminal will call your CLI program with some special environment variables (that hold the current *CLI parameters*, etc) and your CLI program will print some special values that the shell will use to present completion. All this is handled for you by **Clix** behind the scenes.
 
 But the main **important point** is that it is all based on values printed by your program that the shell reads.
 
@@ -128,28 +128,28 @@ It will look something like:
 
 ```console
 // Run it normally
-$ typer ./main.py run --name Camila
+$ clix ./main.py run --name Camila
 
 // See the extra message "Validating name"
 Validating name
 Hello Camila
 
-$ typer ./main.py run --[TAB][TAB]
+$ clix ./main.py run --[TAB][TAB]
 
 // Some weird broken error message ⛔️
 (eval):1: command not found: Validating
-rutyper ./main.pyed Typer app.
+ruclix ./main.pyed Clix app.
 ```
 
 </div>
 
 ### Fix completion - using the `Context`
 
-When you create a **Typer** application it uses Click underneath.
+When you create a **Clix** application it uses Click underneath.
 
 And every Click application has a special object called a <a href="https://click.palletsprojects.com/en/7.x/commands/#nested-handling-and-contexts" class="external-link" target="_blank">"Context"</a> that is normally hidden.
 
-But you can access the context by declaring a function parameter of type `typer.Context`.
+But you can access the context by declaring a function parameter of type `clix.Context`.
 
 The "context" has some additional data about the current execution of your program:
 
@@ -179,14 +179,14 @@ Check it:
 <div class="termy">
 
 ```console
-$ typer ./main.py run --[TAB][TAB]
+$ clix ./main.py run --[TAB][TAB]
 
 // Now it works correctly 🎉
 --help  -- Show this message and exit.
 --name
 
 // And you can call it normally
-$ typer ./main.py run --name Camila
+$ clix ./main.py run --name Camila
 
 Validating name
 Hello Camila
@@ -196,7 +196,7 @@ Hello Camila
 
 ## Using the `CallbackParam` object
 
-The same way you can access the `typer.Context` by declaring a function parameter with its value, you can declare another function parameter with type `typer.CallbackParam` to get the specific Click `Parameter` object.
+The same way you can access the `clix.Context` by declaring a function parameter with its value, you can declare another function parameter with type `clix.CallbackParam` to get the specific Click `Parameter` object.
 
 === "Python 3.6+"
 
@@ -234,7 +234,7 @@ Hello Camila
 
 Because you get the relevant data in the callback function based on standard Python type annotations, you get type checks and autocompletion in your editor for free.
 
-And **Typer** will make sure you get the function parameters you want.
+And **Clix** will make sure you get the function parameters you want.
 
 You don't have to worry about their names, their order, etc.
 
@@ -242,15 +242,15 @@ As it's based on standard Python types, it "**just works**". ✨
 
 ### Click's `Parameter`
 
-The `typer.CallbackParam` is actually just a sub-class of Click's <a href="https://click.palletsprojects.com/en/7.x/api/#click.Parameter" class="external-link" target="_blank">`Parameter`</a>, so you get all the right completion in your editor.
+The `clix.CallbackParam` is actually just a sub-class of Click's <a href="https://click.palletsprojects.com/en/7.x/api/#click.Parameter" class="external-link" target="_blank">`Parameter`</a>, so you get all the right completion in your editor.
 
 ### Callback with type annotations
 
-You can get the `typer.Context` and the `typer.CallbackParam` simply by declaring a function parameter of each type.
+You can get the `clix.Context` and the `clix.CallbackParam` simply by declaring a function parameter of each type.
 
 The order doesn't matter, the name of the function parameters doesn't matter.
 
-You could also get only the `typer.CallbackParam` and not the `typer.Context`, or vice versa, it will still work.
+You could also get only the `clix.CallbackParam` and not the `clix.Context`, or vice versa, it will still work.
 
 ### `value` function parameter
 
@@ -258,4 +258,4 @@ The `value` function parameter in the callback can also have any name (e.g. `las
 
 It's also possible to not declare its type. It will still work.
 
-And it's possible to not declare the `value` parameter at all, and, for example, only get the `typer.Context`. That will also work.
+And it's possible to not declare the `value` parameter at all, and, for example, only get the `clix.Context`. That will also work.

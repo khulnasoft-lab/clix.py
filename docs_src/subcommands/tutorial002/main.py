@@ -1,10 +1,10 @@
-import typer
+import clix
 
-app = typer.Typer()
-items_app = typer.Typer()
-app.add_typer(items_app, name="items")
-users_app = typer.Typer()
-app.add_typer(users_app, name="users")
+app = clix.Clix()
+items_app = clix.Clix()
+app.add_clix(items_app, name="items")
+users_app = clix.Clix()
+app.add_clix(users_app, name="users")
 
 
 @items_app.command("create")

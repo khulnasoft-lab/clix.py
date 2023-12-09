@@ -1,5 +1,5 @@
 import click
-import typer
+import clix
 
 
 @click.group()
@@ -17,20 +17,20 @@ def dropdb():
     click.echo("Dropped the database")
 
 
-app = typer.Typer()
+app = clix.Clix()
 
 
 @app.command()
 def sub():
     """
-    A single-command Typer sub app
+    A single-command Clix sub app
     """
-    print("Typer is now below Click, the Click app is the top level")
+    print("Clix is now below Click, the Click app is the top level")
 
 
-typer_click_object = typer.main.get_command(app)
+clix_click_object = clix.main.get_command(app)
 
-cli.add_command(typer_click_object, "sub")
+cli.add_command(clix_click_object, "sub")
 
 if __name__ == "__main__":
     cli()

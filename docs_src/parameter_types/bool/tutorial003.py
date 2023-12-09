@@ -1,7 +1,7 @@
-import typer
+import clix
 
 
-def main(force: bool = typer.Option(False, "--force/--no-force", "-f/-F")):
+def main(force: bool = clix.Option(False, "--force/--no-force", "-f/-F")):
     if force:
         print("Forcing operation")
     else:
@@ -9,4 +9,4 @@ def main(force: bool = typer.Option(False, "--force/--no-force", "-f/-F")):
 
 
 if __name__ == "__main__":
-    typer.run(main)
+    clix.run(main)

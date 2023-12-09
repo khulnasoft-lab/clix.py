@@ -8,7 +8,7 @@ You can normally just let the code of your CLI program finish its execution, but
 
 This doesn't have to mean that there's an error, just that nothing else needs to be executed.
 
-In that case, you can raise a `typer.Exit()` exception:
+In that case, you can raise a `clix.Exit()` exception:
 
 ```Python hl_lines="9"
 {!../docs_src/terminating/tutorial001.py!}
@@ -17,7 +17,7 @@ In that case, you can raise a `typer.Exit()` exception:
 There are several things to see in this example.
 
 * The CLI program is the function `main()`, not the others. This is the one that takes a *CLI argument*.
-* The function `maybe_create_user()` can terminate the program by raising `typer.Exit()`.
+* The function `maybe_create_user()` can terminate the program by raising `clix.Exit()`.
 * If the program is terminated by `maybe_create_user()` then `send_new_user_notification()` will never execute inside of `main()`.
 
 Check it:
@@ -45,11 +45,11 @@ The user already exists
 
     This is done with an exception because it works as an "error" and stops all execution.
 
-    But then **Typer** (actually Click) catches it and just terminates the program normally.
+    But then **Clix** (actually Click) catches it and just terminates the program normally.
 
 ## Exit with an error
 
-`typer.Exit()` takes an optional `code` parameter. By default, `code` is `0`, meaning there was no error.
+`clix.Exit()` takes an optional `code` parameter. By default, `code` is `0`, meaning there was no error.
 
 You can pass a `code` with a number other than `0` to tell the terminal that there was an error in the execution of the program:
 
@@ -93,7 +93,7 @@ $ echo $?
 
 There's a special exception that you can use to "abort" a program.
 
-It works more or less the same as `typer.Exit()` but will print `"Aborted!"` to the screen and can be useful in certain cases later to make it explicit that the execution was aborted:
+It works more or less the same as `clix.Exit()` but will print `"Aborted!"` to the screen and can be useful in certain cases later to make it explicit that the execution was aborted:
 
 ```Python hl_lines="7"
 {!../docs_src/terminating/tutorial003.py!}

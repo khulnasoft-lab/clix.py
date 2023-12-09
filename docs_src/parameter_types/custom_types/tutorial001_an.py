@@ -1,4 +1,4 @@
-import typer
+import clix
 from typing_extensions import Annotated
 
 
@@ -15,12 +15,12 @@ def parse_custom_class(value: str):
 
 
 def main(
-    custom_arg: Annotated[CustomClass, typer.Argument(parser=parse_custom_class)],
-    custom_opt: Annotated[CustomClass, typer.Option(parser=parse_custom_class)] = "Foo",
+    custom_arg: Annotated[CustomClass, clix.Argument(parser=parse_custom_class)],
+    custom_opt: Annotated[CustomClass, clix.Option(parser=parse_custom_class)] = "Foo",
 ):
     print(f"custom_arg is {custom_arg}")
     print(f"--custom-opt is {custom_opt}")
 
 
 if __name__ == "__main__":
-    typer.run(main)
+    clix.run(main)

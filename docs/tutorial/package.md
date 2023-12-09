@@ -1,14 +1,14 @@
-When you create a CLI program with **Typer** you probably want to create your own Python package.
+When you create a CLI program with **Clix** you probably want to create your own Python package.
 
 That's what allows your users to install it and have it as an independent program that they can use in their terminal.
 
-And that's also required for shell auto completion to work (unless you use your program through [Typer CLI](../typer-cli.md){.internal-link target=_blank}).
+And that's also required for shell auto completion to work (unless you use your program through [Clix CLI](../clix-cli.md){.internal-link target=_blank}).
 
 Nowadays, there are several ways and tools to create Python packages (what you install with `pip install something`).
 
 You might even have your favorite already.
 
-Here's a very opinionated, short guide, showing one of the alternative ways of creating a Python package with a **Typer** app, from scratch.
+Here's a very opinionated, short guide, showing one of the alternative ways of creating a Python package with a **Clix** app, from scratch.
 
 !!! tip
     If you already have a favorite way of creating Python packages, feel free to skip this.
@@ -44,16 +44,16 @@ cd ./rick-portal-gun
 
 ## Dependencies and environment
 
-Add `typer[all]` to your dependencies:
+Add `clix[all]` to your dependencies:
 
 <div class="termy">
 
 ```console
-$ poetry add "typer[all]"
+$ poetry add "clix[all]"
 
 // It creates a virtual environment for your project
 Creating virtualenv rick-portal-gun-w31dJa0b-py3.6 in /home/rick/.cache/pypoetry/virtualenvs
-Using version ^0.1.0 for typer
+Using version ^0.1.0 for clix
 
 Updating dependencies
 Resolving dependencies... (1.2s)
@@ -78,7 +78,7 @@ Package operations: 15 installs, 0 updates, 0 removals
   - Installing shellingham (1.3.2)
   - Installing wcwidth (0.1.8)
   - Installing pytest (5.4.1)
-  - Installing typer (0.0.11)
+  - Installing clix (0.0.11)
 
 // Activate that new virtual environment
 $ poetry shell
@@ -107,15 +107,15 @@ You can see that you have a generated project structure that looks like:
 
 ## Create your app
 
-Now let's create an extremely simple **Typer** app.
+Now let's create an extremely simple **Clix** app.
 
 Create a file `rick_portal_gun/main.py` with:
 
 ```Python
-import typer
+import clix
 
 
-app = typer.Typer()
+app = clix.Clix()
 
 
 @app.callback()
@@ -130,7 +130,7 @@ def shoot():
     """
     Shoot the portal gun
     """
-    typer.echo("Shooting portal gun")
+    clix.echo("Shooting portal gun")
 
 
 @app.command()
@@ -138,7 +138,7 @@ def load():
     """
     Load the portal gun
     """
-    typer.echo("Loading portal gun")
+    clix.echo("Loading portal gun")
 ```
 
 !!! tip
@@ -175,7 +175,7 @@ authors = ["Rick Sanchez <rick@example.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.6"
-typer = {extras = ["all"], version = "^0.1.0"}
+clix = {extras = ["all"], version = "^0.1.0"}
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
@@ -199,7 +199,7 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.6"
-typer = {extras = ["all"], version = "^0.1.0"}
+clix = {extras = ["all"], version = "^0.1.0"}
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
@@ -230,7 +230,7 @@ rick-portal-gun = "rick_portal_gun.main:app"
 
 [tool.poetry.dependencies]
 python = "^3.6"
-typer = {extras = ["all"], version = "^0.1.0"}
+clix = {extras = ["all"], version = "^0.1.0"}
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
@@ -479,7 +479,7 @@ The file would live right beside `__init__.py`:
 
 No other file has to import it, you don't have to reference it in your `pyproject.toml` or anything else, it just works by default, as it is standard Python behavior.
 
-Then in that file you can execute your **Typer** program:
+Then in that file you can execute your **Clix** program:
 
 ```Python
 from .main import app
@@ -677,10 +677,10 @@ $ pip install --user rick-portal-gun
 // Notice that it says "Downloading" 🚀
 Collecting rick-portal-gun
   Downloading rick_portal_gun-0.1.0-py3-none-any.whl (1.8 kB)
-Requirement already satisfied: typer[all]<0.0.12,>=0.0.11 in ./.local/lib/python3.6/site-packages (from rick-portal-gun) (0.0.11)
-Requirement already satisfied: click<7.2.0,>=7.1.1 in ./anaconda3/lib/python3.6/site-packages (from typer[all]<0.0.12,>=0.0.11->rick-portal-gun) (7.1.1)
-Requirement already satisfied: colorama; extra == "all" in ./anaconda3/lib/python3.6/site-packages (from typer[all]<0.0.12,>=0.0.11->rick-portal-gun) (0.4.3)
-Requirement already satisfied: shellingham; extra == "all" in ./anaconda3/lib/python3.6/site-packages (from typer[all]<0.0.12,>=0.0.11->rick-portal-gun) (1.3.1)
+Requirement already satisfied: clix[all]<0.0.12,>=0.0.11 in ./.local/lib/python3.6/site-packages (from rick-portal-gun) (0.0.11)
+Requirement already satisfied: click<7.2.0,>=7.1.1 in ./anaconda3/lib/python3.6/site-packages (from clix[all]<0.0.12,>=0.0.11->rick-portal-gun) (7.1.1)
+Requirement already satisfied: colorama; extra == "all" in ./anaconda3/lib/python3.6/site-packages (from clix[all]<0.0.12,>=0.0.11->rick-portal-gun) (0.4.3)
+Requirement already satisfied: shellingham; extra == "all" in ./anaconda3/lib/python3.6/site-packages (from clix[all]<0.0.12,>=0.0.11->rick-portal-gun) (1.3.1)
 Installing collected packages: rick-portal-gun
 Successfully installed rick-portal-gun-0.1.0
 ```
@@ -700,23 +700,23 @@ Loading portal gun
 
 </div>
 
-## Generate docs with **Typer CLI** (optional)
+## Generate docs with **Clix CLI** (optional)
 
-You can install and use [Typer CLI](../typer-cli.md){.internal-link target=_blank} to generate docs for your package.
+You can install and use [Clix CLI](../clix-cli.md){.internal-link target=_blank} to generate docs for your package.
 
 After installing it, you can use it to generate a new `README.md`:
 
 <div class="termy">
 
 ```console
-$ typer rick_portal_gun.main utils docs --output README.md --name rick-portal-gun
+$ clix rick_portal_gun.main utils docs --output README.md --name rick-portal-gun
 
 Docs saved to: README.md
 ```
 
 </div>
 
-You just have to pass it the module to import (`rick_portal_gun.main`) and it will detect the `typer.Typer` app automatically.
+You just have to pass it the module to import (`rick_portal_gun.main`) and it will detect the `clix.Clix` app automatically.
 
 By specifying the `--name` of the program it will be able to use it while generating the docs.
 
@@ -739,7 +739,7 @@ rick-portal-gun = "rick_portal_gun.main:app"
 
 [tool.poetry.dependencies]
 python = "^3.6"
-typer = {extras = ["all"], version = "^0.1.0"}
+clix = {extras = ["all"], version = "^0.1.0"}
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"

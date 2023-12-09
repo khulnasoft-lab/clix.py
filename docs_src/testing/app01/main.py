@@ -1,8 +1,8 @@
 from typing import Optional
 
-import typer
+import clix
 
-app = typer.Typer()
+app = clix.Clix()
 
 
 @app.command()

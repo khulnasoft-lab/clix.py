@@ -1,9 +1,9 @@
-import typer
+import clix
 
 
 def main(
     name: str,
-    password: str = typer.Option(
+    password: str = clix.Option(
         ..., prompt=True, confirmation_prompt=True, hide_input=True
     ),
 ):
@@ -12,4 +12,4 @@ def main(
 
 
 if __name__ == "__main__":
-    typer.run(main)
+    clix.run(main)

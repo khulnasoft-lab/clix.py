@@ -1,11 +1,11 @@
-import typer
+import clix
 from typing_extensions import Annotated
 
 
-def main(config: Annotated[typer.FileText, typer.Option()]):
+def main(config: Annotated[clix.FileText, clix.Option()]):
     for line in config:
         print(f"Config line: {line}")
 
 
 if __name__ == "__main__":
-    typer.run(main)
+    clix.run(main)

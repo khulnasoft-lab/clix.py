@@ -1,11 +1,11 @@
-import typer
+import clix
 from typing_extensions import Annotated
 
-app = typer.Typer()
+app = clix.Clix()
 
 
 @app.command()
-def main(name: Annotated[str, typer.Option(help="The name to say hi to.")] = "World"):
+def main(name: Annotated[str, clix.Option(help="The name to say hi to.")] = "World"):
     print(f"Hello {name}")
 
 

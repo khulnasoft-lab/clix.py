@@ -18,7 +18,7 @@ As an example of how it could be useful, let's see how the `ls` CLI program work
 $ ls
 
 // ls will "list" the files and directories in the current directory
-typer  tests  README.md  LICENSE
+clix  tests  README.md  LICENSE
 
 // But it also receives an optional CLI argument
 $ ls ./tests/
@@ -45,11 +45,11 @@ Now let's see an alternative way to create the same *CLI argument*:
 ```
 
 !!! info
-    Typer added support for `Annotated` (and started recommending it) in version 0.9.0.
+    Clix added support for `Annotated` (and started recommending it) in version 0.9.0.
 
     If you have an older version, you would get errors when trying to use `Annotated`.
 
-    Make sure you Upgrade the Typer version to at least 0.9.0 before using `Annotated`.
+    Make sure you Upgrade the Clix version to at least 0.9.0 before using `Annotated`.
 
 Before, you had this function parameter:
 
@@ -65,10 +65,10 @@ name: Annotated[str]
 
 Both of these versions mean the same thing, `Annotated` is part of standard Python and is there for this.
 
-But the second version using `Annotated` allows us to pass additional metadata that can be used by **Typer**:
+But the second version using `Annotated` allows us to pass additional metadata that can be used by **Clix**:
 
 ```Python
-name: Annotated[str, typer.Argument()]
+name: Annotated[str, clix.Argument()]
 ```
 
 Now we are being explicit that `name` is a *CLI argument*. It's still a `str` and it's still required (it doesn't have a default value).
@@ -93,7 +93,7 @@ It's still not very useful, but it works correctly.
 And being able to declare a **required** *CLI argument* using
 
 ```Python
-name: Annoated[str, typer.Argument()]
+name: Annoated[str, clix.Argument()]
 ```
 
 ...that works exactly the same as
@@ -108,7 +108,7 @@ name: str
 
 Now, finally what we came for, an optional *CLI argument*.
 
-To make a *CLI argument* optional, use `typer.Argument()` and pass a different "default" as the first parameter to `typer.Argument()`, for example `None`:
+To make a *CLI argument* optional, use `clix.Argument()` and pass a different "default" as the first parameter to `clix.Argument()`, for example `None`:
 
 ```Python hl_lines="7"
 {!../docs_src/arguments/optional/tutorial002_an.py!}
@@ -117,10 +117,10 @@ To make a *CLI argument* optional, use `typer.Argument()` and pass a different "
 Now we have:
 
 ```Python
-name: Annotated[Optional[str], typer.Argument()] = None
+name: Annotated[Optional[str], clix.Argument()] = None
 ```
 
-Because we are using `typer.Argument()` **Typer** will know that this is a *CLI argument* (no matter if *required* or *optional*).
+Because we are using `clix.Argument()` **Clix** will know that this is a *CLI argument* (no matter if *required* or *optional*).
 
 !!! tip
     By using `Optional` your editor will be able to know that the value *could* be `None`, and will be able to warn you if you do something assuming it is a `str` that would break if it was `None`.
@@ -170,11 +170,11 @@ Hello Camila
 !!! tip
     Notice that "`Camila`" here is an optional *CLI argument*, not a *CLI option*, because we didn't use something like "`--name Camila`", we just passed "`Camila`" directly to the program.
 
-## Alternative (old) `typer.Argument()` as the default value
+## Alternative (old) `clix.Argument()` as the default value
 
-**Typer** also supports another older alternative syntax for declaring *CLI arguments* with additional metadata.
+**Clix** also supports another older alternative syntax for declaring *CLI arguments* with additional metadata.
 
-Instead of using `Annotated`, you can use `typer.Argument()` as the default value:
+Instead of using `Annotated`, you can use `clix.Argument()` as the default value:
 
 ```Python hl_lines="4"
 {!> ../docs_src/arguments/optional/tutorial001.py!}
@@ -185,22 +185,22 @@ Instead of using `Annotated`, you can use `typer.Argument()` as the default valu
 
 Before, because `name` didn't have any default value it would be a **required parameter** for the Python function, in Python terms.
 
-When using `typer.Argument()` as the default value **Typer** does the same and makes it a **required** *CLI argument*.
+When using `clix.Argument()` as the default value **Clix** does the same and makes it a **required** *CLI argument*.
 
 We changed it to:
 
 ```Python
-name: str = typer.Argument()
+name: str = clix.Argument()
 ```
 
-But now as `typer.Argument()` is the "default value" of the function's parameter, it would mean that "it is no longer required" (in Python terms).
+But now as `clix.Argument()` is the "default value" of the function's parameter, it would mean that "it is no longer required" (in Python terms).
 
-As we no longer have the Python function default value (or its absence) to tell if something is required or not and what is the default value, `typer.Argument()` receives a first parameter `default` that serves the same purpose of defining that default value, or making it required.
+As we no longer have the Python function default value (or its absence) to tell if something is required or not and what is the default value, `clix.Argument()` receives a first parameter `default` that serves the same purpose of defining that default value, or making it required.
 
-Not passing any value to the `default` argument is the same as marking it as required. But you can also explicitly mark it as *required* by passing `...` as the `default` argument, passed to `typer.Argument(default=...)`.
+Not passing any value to the `default` argument is the same as marking it as required. But you can also explicitly mark it as *required* by passing `...` as the `default` argument, passed to `clix.Argument(default=...)`.
 
 ```Python
-name: str = typer.Argument(default=...)
+name: str = clix.Argument(default=...)
 ```
 
 !!! info
@@ -216,18 +216,18 @@ And the same way, you can make it optional by passing a different `default` valu
 {!> ../docs_src/arguments/optional/tutorial002.py!}
 ```
 
-Because the first parameter passed to `typer.Argument(default=None)` (the new "default" value) is `None`, **Typer** knows that this is an **optional** *CLI argument*, if no value is provided when calling it in the command line, it will have that default value of `None`.
+Because the first parameter passed to `clix.Argument(default=None)` (the new "default" value) is `None`, **Clix** knows that this is an **optional** *CLI argument*, if no value is provided when calling it in the command line, it will have that default value of `None`.
 
 The `default` argument is the first one, so it's possible that you see code that passes the value without explicitly using `default=`, like:
 
 ```Python
-name: str = typer.Argument(...)
+name: str = clix.Argument(...)
 ```
 
 ...or like:
 
 ```Python
-name: str = typer.Argument(None)
+name: str = clix.Argument(None)
 ```
 
-...but again, try to use `Annotated` if possible, that way your code in terms of Python will mean the same thing as with **Typer** and you won't have to remember any of these details.
+...but again, try to use `Annotated` if possible, that way your code in terms of Python will mean the same thing as with **Clix** and you won't have to remember any of these details.

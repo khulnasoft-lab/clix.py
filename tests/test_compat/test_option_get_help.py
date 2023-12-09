@@ -2,8 +2,8 @@ import os
 import subprocess
 import sys
 
-import typer.core
-from typer.testing import CliRunner
+import clix.core
+from clix.testing import CliRunner
 
 from tests.assets import compat_click7_8 as mod
 
@@ -21,8 +21,8 @@ def test_hidden_option():
 
 
 def test_hidden_option_no_rich():
-    rich = typer.core.rich
-    typer.core.rich = None
+    rich = clix.core.rich
+    clix.core.rich = None
     result = runner.invoke(mod.app, ["--help"])
     assert result.exit_code == 0
     assert "Say hello" in result.output
@@ -30,7 +30,7 @@ def test_hidden_option_no_rich():
     assert "/lastname" in result.output
     assert "TEST_LASTNAME" in result.output
     assert "(dynamic)" in result.output
-    typer.core.rich = rich
+    clix.core.rich = rich
 
 
 def test_coverage_call():
@@ -48,8 +48,8 @@ def test_completion():
         env={
             **os.environ,
             "_COMPAT_CLICK7_8.PY_COMPLETE": "complete_zsh",
-            "_TYPER_COMPLETE_ARGS": "compat_click7_8.py --nickname ",
-            "_TYPER_COMPLETE_TESTING": "True",
+            "_CLIX_COMPLETE_ARGS": "compat_click7_8.py --nickname ",
+            "_CLIX_COMPLETE_TESTING": "True",
         },
     )
     # TODO: when deprecating Click 7, remove second option

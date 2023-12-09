@@ -3,6 +3,6 @@
 set -e
 set -x
 
-mypy typer
-black typer tests docs_src --check
-isort typer tests docs_src --check-only
+mypy clix
+black clix tests docs_src --check
+isort clix tests docs_src --check-only

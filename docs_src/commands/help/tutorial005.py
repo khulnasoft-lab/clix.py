@@ -1,10 +1,10 @@
-import typer
+import clix
 
-app = typer.Typer(rich_markup_mode="markdown")
+app = clix.Clix(rich_markup_mode="markdown")
 
 
 @app.command()
-def create(username: str = typer.Argument(..., help="The username to be **created**")):
+def create(username: str = clix.Argument(..., help="The username to be **created**")):
     """
     **Create** a new *shiny* user. :sparkles:
 
@@ -14,15 +14,15 @@ def create(username: str = typer.Argument(..., help="The username to be **create
 
     ---
 
-    Learn more at the [Typer docs website](https://typer.tiangolo.com)
+    Learn more at the [Clix docs website](https://clix.khulnasoft.com)
     """
     print(f"Creating user: {username}")
 
 
 @app.command(help="**Delete** a user with *USERNAME*.")
 def delete(
-    username: str = typer.Argument(..., help="The username to be **deleted**"),
-    force: bool = typer.Option(False, help="Force the **deletion** :boom:"),
+    username: str = clix.Argument(..., help="The username to be **deleted**"),
+    force: bool = clix.Option(False, help="Force the **deletion** :boom:"),
 ):
     """
     Some internal utility function to delete.

@@ -1,4 +1,4 @@
-You can launch applications from your CLI program with `typer.launch()`.
+You can launch applications from your CLI program with `clix.launch()`.
 
 It will launch the appropriate application depending on the URL or file type you pass it:
 
@@ -13,9 +13,9 @@ Check it:
 ```console
 $ python main.py
 
-Opening Typer docs
+Opening Clix docs
 
-// Opens browser with Typer's docs
+// Opens browser with Clix's docs
 ```
 
 </div>
@@ -31,7 +31,7 @@ You can also make the operating system open the file browser indicating where a 
 !!! tip
     The rest of the code in this example is just making sure the app directory exists and creating the config file.
 
-    But the most important part is the `typer.launch(config_file_str, locate=True)` with the argument `locate=True`.
+    But the most important part is the `clix.launch(config_file_str, locate=True)` with the argument `locate=True`.
 
 Check it:
 

@@ -1,11 +1,11 @@
-import typer
+import clix
 
 import items
 import users
 
-app = typer.Typer()
-app.add_typer(users.app, name="users")
-app.add_typer(items.app, name="items")
+app = clix.Clix()
+app.add_clix(users.app, name="users")
+app.add_clix(items.app, name="items")
 
 if __name__ == "__main__":
     app()

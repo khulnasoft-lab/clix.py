@@ -1,4 +1,4 @@
-import typer
+import clix
 
 
 class CustomClass:
@@ -14,12 +14,12 @@ def parse_custom_class(value: str):
 
 
 def main(
-    custom_arg: CustomClass = typer.Argument(parser=parse_custom_class),
-    custom_opt: CustomClass = typer.Option("Y", parser=parse_custom_class),
+    custom_arg: CustomClass = clix.Argument(parser=parse_custom_class),
+    custom_opt: CustomClass = clix.Option("Y", parser=parse_custom_class),
 ):
     print(f"custom_arg is {custom_arg}")
     print(f"--custom-opt is {custom_opt}")
 
 
 if __name__ == "__main__":
-    typer.run(main)
+    clix.run(main)

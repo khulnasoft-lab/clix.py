@@ -1,9 +1,9 @@
-import typer
+import clix
 
 
 def main(
-    name: str = typer.Option(..., "--name", "-n"),
-    formal: bool = typer.Option(False, "--formal", "-f"),
+    name: str = clix.Option(..., "--name", "-n"),
+    formal: bool = clix.Option(False, "--formal", "-f"),
 ):
     if formal:
         print(f"Good day Ms. {name}.")
@@ -12,4 +12,4 @@ def main(
 
 
 if __name__ == "__main__":
-    typer.run(main)
+    clix.run(main)

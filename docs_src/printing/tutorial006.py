@@ -1,9 +1,9 @@
-import typer
+import clix
 
 
 def main(name: str):
-    typer.secho(f"Welcome here {name}", fg=typer.colors.MAGENTA)
+    clix.secho(f"Welcome here {name}", fg=clix.colors.MAGENTA)
 
 
 if __name__ == "__main__":
-    typer.run(main)
+    clix.run(main)
