@@ -7,9 +7,7 @@ def main(
     lastname: Annotated[str, clix.Option(help="Last name of person to greet.")] = "",
     formal: Annotated[
         bool,
-        clix.Option(
-            help="Say hi formally.", rich_help_panel="Customization and Utils"
-        ),
+        clix.Option(help="Say hi formally.", rich_help_panel="Customization and Utils"),
     ] = False,
     debug: Annotated[
         bool,

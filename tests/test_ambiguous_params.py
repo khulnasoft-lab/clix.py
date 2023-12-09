@@ -1,5 +1,5 @@
-import pytest
 import clix
+import pytest
 from clix.testing import CliRunner
 from clix.utils import (
     AnnotatedParamWithDefaultValueError,

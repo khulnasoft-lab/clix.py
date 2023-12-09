@@ -4,8 +4,8 @@ import sys
 from pathlib import Path
 from unittest import mock
 
-import shellingham
 import clix
+import shellingham
 from clix.testing import CliRunner
 
 from docs_src.commands.index import tutorial001 as mod

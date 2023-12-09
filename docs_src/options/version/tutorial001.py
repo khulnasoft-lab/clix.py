@@ -13,9 +13,7 @@ def version_callback(value: bool):
 
 def main(
     name: str = clix.Option("World"),
-    version: Optional[bool] = clix.Option(
-        None, "--version", callback=version_callback
-    ),
+    version: Optional[bool] = clix.Option(None, "--version", callback=version_callback),
 ):
     print(f"Hello {name}")
 

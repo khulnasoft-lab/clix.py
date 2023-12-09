@@ -14,10 +14,11 @@ from uuid import UUID
 import click
 
 from .completion import get_completion_inspect_parameters
-from .core import MarkupMode, ClixArgument, ClixCommand, ClixGroup, ClixOption
+from .core import ClixArgument, ClixCommand, ClixGroup, ClixOption, MarkupMode
 from .models import (
     AnyType,
     ArgumentInfo,
+    ClixInfo,
     CommandFunctionType,
     CommandInfo,
     Default,
@@ -32,7 +33,6 @@ from .models import (
     ParameterInfo,
     ParamMeta,
     Required,
-    ClixInfo,
 )
 from .utils import get_params_from_function
 

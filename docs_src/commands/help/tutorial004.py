@@ -5,9 +5,7 @@ app = clix.Clix(rich_markup_mode="rich")
 
 @app.command()
 def create(
-    username: str = clix.Argument(
-        ..., help="The username to be [green]created[/green]"
-    )
+    username: str = clix.Argument(..., help="The username to be [green]created[/green]")
 ):
     """
     [bold green]Create[/bold green] a new [italic]shiny[/italic] user. :sparkles:

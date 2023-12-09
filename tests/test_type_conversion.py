@@ -3,8 +3,8 @@ from pathlib import Path
 from typing import Any, List, Optional, Tuple
 
 import click
-import pytest
 import clix
+import pytest
 from clix.testing import CliRunner
 
 runner = CliRunner()
@@ -97,9 +97,7 @@ def test_custom_parse():
     app = clix.Clix()
 
     @app.command()
-    def custom_parser(
-        hex_value: int = clix.Argument(None, parser=lambda x: int(x, 0))
-    ):
+    def custom_parser(hex_value: int = clix.Argument(None, parser=lambda x: int(x, 0))):
         assert hex_value == 0x56
 
     result = runner.invoke(app, ["0x56"])

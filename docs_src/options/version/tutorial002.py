@@ -18,9 +18,7 @@ def name_callback(name: str):
 
 def main(
     name: str = clix.Option(..., callback=name_callback),
-    version: Optional[bool] = clix.Option(
-        None, "--version", callback=version_callback
-    ),
+    version: Optional[bool] = clix.Option(None, "--version", callback=version_callback),
 ):
     print(f"Hello {name}")
 

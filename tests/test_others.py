@@ -6,12 +6,12 @@ from pathlib import Path
 from unittest import mock
 
 import click
-import pytest
-import shellingham
 import clix
 import clix.completion
+import pytest
+import shellingham
 from clix.main import solve_clix_info_defaults, solve_clix_info_help
-from clix.models import ParameterInfo, ClixInfo
+from clix.models import ClixInfo, ParameterInfo
 from clix.testing import CliRunner
 
 runner = CliRunner()
