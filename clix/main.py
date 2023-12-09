@@ -453,9 +453,7 @@ def solve_clix_info_defaults(clix_info: ClixInfo) -> ClixInfo:
             pass
         # Priority 3: Value set in subapp = clix.Clix()
         try:
-            instance_value = getattr(
-                clix_info.clix_instance.info, name  # type: ignore
-            )
+            instance_value = getattr(clix_info.clix_instance.info, name)  # type: ignore
             if not isinstance(instance_value, DefaultPlaceholder):
                 values[name] = instance_value
                 continue

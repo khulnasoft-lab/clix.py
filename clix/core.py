@@ -325,9 +325,7 @@ class ClixArgument(click.core.Argument):
             kwargs["autocompletion"] = autocompletion
         super().__init__(**kwargs)
         if _get_click_major() > 7:
-            _clix_param_setup_autocompletion_compat(
-                self, autocompletion=autocompletion
-            )
+            _clix_param_setup_autocompletion_compat(self, autocompletion=autocompletion)
 
     def _get_default_string(
         self,
@@ -489,9 +487,7 @@ class ClixOption(click.core.Option):
             kwargs["autocompletion"] = autocompletion
         super().__init__(**kwargs)
         if _get_click_major() > 7:
-            _clix_param_setup_autocompletion_compat(
-                self, autocompletion=autocompletion
-            )
+            _clix_param_setup_autocompletion_compat(self, autocompletion=autocompletion)
         self.rich_help_panel = rich_help_panel
 
     def _get_default_string(
