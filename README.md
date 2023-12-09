@@ -1,7 +1,4 @@
 <p align="center">
-  <a href="https://clix.khulnasoft.com"><img src="https://clix.khulnasoft.com/img/logo-margin/logo-margin-vector.svg" alt="Clix"></a>
-</p>
-<p align="center">
     <em>Clix, build great CLIs. Easy to code. Based on Python type hints.</em>
 </p>
 <p align="center">
@@ -36,13 +33,6 @@ The key features are:
 * **Start simple**: The simplest example adds only 2 lines of code to your app: **1 import, 1 function call**.
 * **Grow large**: Grow in complexity as much as you want, create arbitrarily complex trees of commands and groups of subcommands, with options and arguments.
 
-## FastAPI of CLIs
-
-<a href="https://fastapi.khulnasoft.com" target="_blank"><img src="https://fastapi.khulnasoft.com/img/logo-margin/logo-teal.png" style="width: 20%;"></a>
-
-**Clix** is <a href="https://fastapi.khulnasoft.com" class="external-link" target="_blank">FastAPI</a>'s little sibling.
-
-And it's intended to be the FastAPI of CLIs.
 
 ## Requirements
 
