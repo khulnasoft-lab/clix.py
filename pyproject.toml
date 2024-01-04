@@ -10,7 +10,7 @@ packages = [{include = "clix"}]
 python = "^3.11"
 
 [build-system]
-requires = ["flit_core >=2,<3"]
+requires = ["flit_core >=3,<4"]
 build-backend = "flit_core.buildapi"
 
 [tool.flit.metadata]
